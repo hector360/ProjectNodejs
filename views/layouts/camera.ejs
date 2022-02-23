@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Ler Barcode </title>
+    <!-- <link src="/js/quagga.min.js" />
+    <script src="/js/quagga.min.js"></script> -->
+    <style>
+        .centrador{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .centrador .contBotonScanner{
+            width: 100px;
+            height: 100px;
+            background: green;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .centrador .contBotonScanner .boton{
+            width: 90px;
+            height: 90px;
+            background: #CE4444;
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 20px;
+            color: #fff;
+            font-family: sans-serif;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/MiSistema.js"></script>
+    <script>
+        var MagicPlanet = {};
+        
+        MagicPlanet.MiSistema = new MiSistema();
+    </script>
+</head>
+
+<body>
+    <div id="reader" width="600px"></div>
+    <div class="centrador">
+        <div class="contBotonScanner">
+            <div class="boton" onmousedown="mouseDown()">
+                Escanear
+            </div>
+        </div>
+    </div>
+    <script src="./js/minified/html5-qrcode.min.js"></script>
+    <script>
+         const current_url = new URL(window.location.href);
+        const search_params = current_url.searchParams;
+        const ruta = search_params.get('ruta');
+        console.log("ruta")
+        console.log(ruta)
+
+        Html5Qrcode.getCameras().then(devices => {
+
+        if (devices && devices.length) { 
+            if(devices.length > 1){ 
+                var cameraId = devices[1].id;
+            }else{
+                var cameraId = devices[0].id;
+            }
+            // .. use this to start scanning.
+            const html5QrCode = new Html5Qrcode(/* element id */ "reader");
+            html5QrCode.start(
+            cameraId,
+            {
+                fps: 10,    // Optional frame per seconds for qr code scanning
+                qrbox: 250  // Optional if you want bounded box UI
+            },
+            qrCodeMessage => {
+                // do something when code is read
+                
+                if(qrCodeMessage != ""){
+                    console.log(qrCodeMessage)
+                    // // window.location.href = qrCodeMessage;
+                    // var settings = {
+                    //     "url": "/sumarServicio",
+                    //     "method": "POST",
+                    //     "timeout": 0,
+                    //     "data": {
+                            
+                    //     }
+                    // };
+
+                    // $.ajax(settings).done(function (response) {
+                    //     console.log(response);
+                    // })
+                    if(ruta == "usuario-existente"){
+                         
+                         window.location.href = `/${ruta}?id=${qrCodeMessage}`;
+                    }
+                    if(ruta == "vincular-brazalete"){
+                        const id = search_params.get('id');
+                        window.location.href = `/${ruta}?id=${id}&brazalete=${qrCodeMessage}`;
+                    }
+                    if(ruta == "checkout"){
+                        const id = search_params.get('id');
+                        window.location.href = `/${ruta}?brazalete=${qrCodeMessage}`;
+                    }
+                }
+                // html5QrCode.stop()
+            },
+            errorMessage => {
+                // parse error, ignore it.
+            })
+            .catch(err => {
+            // Start failed, handle it.
+            });
+        }
+        }).catch(err => {
+        // handle err
+});
+    </script>
+</body>
+
+</html>

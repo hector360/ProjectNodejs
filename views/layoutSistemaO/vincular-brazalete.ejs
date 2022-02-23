@@ -1,0 +1,74 @@
+<%- layout('layouts/layoutSistemaO') %>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<div class="container-fluid">
+    <div class="row">
+        <div class="cont-boton-regresar" id="cont-boton-regresar"></div>
+    </div>
+    <div class="col-md-12 mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card earning-card">
+                    <div class="card-body p-3">
+                        <h2>Vincular Brazalete</h2>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="caja" id="iCodigoBrazalete"></div>
+                                </div>
+                                <div class="col-md-4" id="cont-redireccion">
+                                    <!-- <div class="btn btn-primary btn-escan" id="botonEscanner">Escanear Brazalete</div> -->
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div id="reader" class="contCamera"></div>
+                        <input type="hidden" name="codigo_brazalete" id="codigo_brazalete" />
+                        <input type="hidden" name="identificadorPersona" id="identificadorPersona" />
+                        <input type="hidden" name="id" id="id" />
+                        <input type="hidden" name="tBrazalete" id="tBrazalete" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card earning-card">
+                    <div class="card-body p-3">
+                        <h2>Usuarios</h2>
+                        <div class="cont-personasUsuarios" id="cont-personasUsuarios"></div>
+                        <div class="cont-personaSeleccionada" id="cont-personaSeleccionada"></div>
+                        <div class="cont-personaSeleccionada" id="cont-tipoBrazalete"></div>
+                        <div class="cont-input" id="cont-select-persona"></div>
+                        <div class="cont-input" id="cont-selectTipo"></div>
+                        <div class="btn btn-primary btn-control btn-block mt-3" id="botonVincular" onclick="MagicPlanet.MiSistema.vincularBrazalete()">Vincular</div>
+                    </div>
+                </div>
+                <div class="card earning-card mt-3">
+                    <div class="card-body p-3">
+                        <h2>Brazaletes Vinculados</h2>
+                        <div class="cont-vinculados" id="cont-vinculados"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+        const current_url = new URL(window.location.href);
+        const search_params = current_url.searchParams;
+        const id = search_params.get('id');
+        const brazalete = search_params.get('brazalete');
+
+        $('#cont-redireccion').html(`<a href="/camera?ruta=vincular-brazalete&id=${id}" class="btn btn-primary btn-escan">Escanear Brazalete</a>`)
+        $('#cont-boton-regresar').html(`<a href="/seleccionar-compra?id=${id}" class="btn btn-warning btn-regresar"><i class="fa fa-arrow-left"></i> Regresar</a>`)
+    MagicPlanet.MiSistema.traerUsuariosPersonas(id);
+    MagicPlanet.MiSistema.traerVinculosBrazalete(id);
+       if(brazalete != null){
+        $('#codigo_brazalete').val(brazalete);
+        $('#iCodigoBrazalete').html(`<span>${brazalete}</span>`)
+       }
+    $('#id').val(id);
+
+
+    
+</script>

@@ -1,0 +1,24 @@
+<%- layout('layouts/eventoLayout') %>
+
+
+<div class="contPrincipal">
+    
+</div>
+
+<script>
+    $(document).ready(async function() {
+        
+        // MagicPlanet.MisScripts.traerBrazaletes();
+        
+        
+        const current_url = new URL(window.location.href);
+        const search_params = current_url.searchParams;
+        const id = search_params.get('id');
+
+        window.location.href = `/compra-cliente?id=${id}`;
+        
+
+        
+    })
+
+</script>

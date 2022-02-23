@@ -1,0 +1,129 @@
+<%- layout('layouts/layoutSistemaO') %>
+<style>
+    .cont-deudas{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .cont-deudas .cont-tituloT{
+        width: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top: 1px solid cornflowerblue;
+        border-bottom: 1px solid cornflowerblue;
+        border-radius: 8px;
+        margin: 10px 0;
+    }
+    .tituloTabla{
+        padding: 10px;
+        box-sizing: border-box;
+        font-size: 24px;
+    }
+    table{
+        width: 70%;
+    }
+    table tr{
+        width: 100%;
+    }
+    table tr th{ 
+        padding: 10px;
+        box-sizing: border-box;
+        border-top: 1px solid cornflowerblue;
+        border-bottom: 1px solid cornflowerblue;
+        font-size: 16px;
+    }
+    table tr td{ 
+        padding: 15px 10px;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+    .cont-totalT {
+        width: 70%;
+        border-top: 1px solid cornflowerblue;
+        display: flex;
+        align-content: flex-end
+    }
+    .cont-totalT .totalT{
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        text-align: right;
+    }
+    .cont-botones{
+        width: 100%;
+        padding: 20px 0;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .cont-botones .boton{
+        width: 20%;
+        padding: 10px;
+        box-sizing: border-box;
+        background: rgba(115,102,255,1);
+        color: #fff;
+        font-size: 20px;
+        border-radius: 10px;
+        text-align: center;
+        margin: 0 15px;
+    }
+    .botonCanjear{
+        background: #FFDD33;
+        text-align: center;
+        color: #fff;
+        border-radius: 8px;
+        padding: 10px;
+    }
+    .selectPop{
+        width: 60%;
+        padding: 10px;
+        box-sizing: border-box;
+        margin: 10px 0;
+    }
+    .cont-deuditas{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .horasRestantes{
+        width: 20%;
+        height: 90%;
+        padding: 10px;
+        border: 1px solid #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+</style>
+<div id="cont-popup">
+
+</div>
+<div class="cont-deudas" id="cont-deudasHoras">
+
+</div>
+<div class="cont-deudas" id="cont-cuentaAbierta">
+
+</div>
+<div class="cont-botones">
+    <a href="/checkout" class="boton">Atras</a>
+    <div class="boton" onclick="MagicPlanet.MiSistema.popUpDeudas()">Liquidar</div>
+</div>
+<script>
+    
+    $(document).ready(function() {
+        const current_url = new URL(window.location.href);
+        const search_params = current_url.searchParams;
+        const id = search_params.get('id');
+
+        MagicPlanet.MiSistema.traerDeudas(id);
+
+        // MagicPlanet.MiSistema.traerTarjetasHoras(id);
+        // MagicPlanet.MiSistema.traerNinos(id);
+        
+    } );
+</script>

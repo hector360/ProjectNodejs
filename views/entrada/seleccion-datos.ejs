@@ -1,0 +1,88 @@
+<%- layout('layouts/main') %>
+
+<style>
+    body, html {
+        width: 100%;
+        height: 100%;
+    }
+    .contPrincipal{
+        width: 100%;
+        height: 100%;
+    }
+    .contPrincipal .centrador{
+        width: 70%;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .contPrincipal .centrador .caja{
+        width: 75%;
+        height: 200px;
+        margin: 20px 0;
+        border-radius: 10px;
+    }
+    .contPrincipal .centrador .caja a{
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .contPrincipal .centrador .caja a h2{
+        font-size: 30px;
+        color: #fff;
+    }
+    .morado{
+        background: #B874D8;
+    }
+    .verde{
+        background: #74D875; 
+    }
+</style>
+
+<div class="contPrincipal">
+    <div class="centrador">
+        <div class="caja morado" id="comprar-entrada">
+            
+            
+        </div>
+        <div class="caja verde" id="tengo-entrada">
+            
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(async function() {
+        
+        // MagicPlanet.MisScripts.traerBrazaletes();
+    
+        const current_url = new URL(window.location.href);
+        const search_params = current_url.searchParams;
+        const id = search_params.get('id');
+        let html = '';
+        let html2 = '';
+
+        html +=
+        `<a href="/compra-cliente?id=${id}">
+            <h2>Comprar Entrada</h2>
+        </a>`;
+
+        html2 +=
+        `<a href="/seleccion-vincular?id=${id}">
+            <h2>Ya tengo Entrada</h2>
+        </a>`;
+
+
+        $('#comprar-entrada').html(html);
+        $('#tengo-entrada').html(html2);
+
+        
+    })
+
+</script>

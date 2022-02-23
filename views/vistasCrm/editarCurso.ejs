@@ -1,0 +1,367 @@
+
+<%- layout('layouts/main') %>
+<style>
+    
+
+    .contenedorDatos{
+        width: 60%;
+        margin: 0 auto;
+    }
+    .contenedorDatos h2{
+        width: 60%;
+        margin: 15px auto;
+        font-size: 24px;
+    }
+    .contenedorDatos .cont-imagen{
+        width: 60%;
+        margin: 10px auto;
+    }
+    .contenedorDatos .cont-imagen img{
+        width: 100%;
+        height: 100%;
+    }
+    .contenedorDatos .cont-imagen img:hover{
+        border: 4px dashed #43BF4F;
+    }
+    .cont-titulo{
+        width: 60%;
+        margin: 10px auto;
+    }
+    .cont-titulo .titulo{
+        width: 100%;
+        background: #fff;
+        padding: 15px 20px;
+        border: 2px solid #ccc;
+    }
+    .cont-titulo .titulo:hover{
+        border: 4px dashed #43BF4F;
+    }
+
+    .cont-select{
+        width: 60%;
+        margin: 10px auto;
+    }
+    .cont-select .select{
+        width: 100%;
+        background: #fff;
+        padding: 15px 20px;
+        border: 2px solid #ccc;
+    }
+    .cont-select .select:hover{
+        border: 4px dashed #43BF4F;
+    }
+    .cont-descripcion{
+        width: 60%;
+        margin: 10px auto;
+    }
+    .cont-descripcion .descripcion{
+        width: 100%;
+        background: #fff;
+        padding: 15px 20px;
+        border: 2px solid #ccc;
+    }
+    .cont-descripcion .descripcion:hover{
+        border: 4px dashed #43BF4F;
+    }
+    .cont-precio{
+        width: 60%;
+        margin: 10px auto;
+    }
+    .cont-precio .precio{
+        width: 100%;
+        background: #fff;
+        padding: 15px 20px;
+        border: 2px solid #ccc;
+        
+    }
+    .cont-precio .precio:hover{
+        border: 4px dashed #43BF4F;
+    }
+
+    .contenidoForm{
+        width: 100%;
+    }
+    .contenidoForm form{
+        background: none !important;
+        width: 100% !important;
+        display: flex !important;
+    }
+    .contenidoForm form .cont-input{
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .contenidoForm form .cont-input select{
+        width: 100%;
+        padding: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .contenidoForm form .cont-input .seccionImagen{
+        width: 100%;
+    }
+    .contenidoForm form .cont-input input{
+        width: 100%;
+        padding: 10px;
+    }
+    .contenidoForm form .cont-botones{
+        width: 20%;
+    }
+    .contenidoForm form .cont-botones .editar{
+        width: 95%;
+        margin: 5px auto;
+        background: seagreen;
+        color: #fff;
+        padding: 8px;
+        text-align: center;
+        border-radius: 8px;
+    }
+    .contenidoForm form .cont-botones .cancelar{
+        width: 95%;
+        margin: 0 auto;
+        background:tomato;
+        color: #fff;
+        padding: 8px;
+        text-align: center;
+        border-radius: 8px;
+    }
+    
+
+    .cont-imagen2{
+        width: 100%;
+        height: 400px;
+        text-align: center;
+        border: 5px dashed  #ccc;
+        position: relative;
+    }
+    .cont-imagen2:hover{
+        border: 5px dashed  #55E142;
+        
+    }
+    .cont-imagen .cont-icono{
+        position: absolute;
+        top: 34%;
+        right: 25%;
+        margin: 0 auto;
+        font-size: 80px;
+        color: #ccc;
+    }
+    
+    .cont-imagen .cont-icono span{
+        font-size: 40px;
+    }
+    .cont-imagen input{
+        /* padding: 50px; */
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+    }
+    .esconder{
+        display: none;
+    }
+
+     .cambiarImagen{
+        width: 25%;
+        background: #f8d7da;
+        margin: 10px;
+        float: right;
+        padding: 10px 0;
+        border-radius: 12px;
+        border: 1px solid #f5c6cb;
+        color: #721c24;
+        text-align: center;
+    }
+    .contenedorDuracion{
+        width: 60%;
+        margin: 0 auto;
+        display: flex;
+    }
+    .contenedorDuracion .cont-duracionCurso{
+        width: 50%;
+    }
+    .contenedorDuracion .cont-unidadTiempo{
+        width: 50%;
+    }
+    
+
+    .contenedor{
+        width: 60%;
+        margin: 10px auto;
+    }
+    .contenedor .maestro{
+        width: 100%;
+        background: #fff;
+        padding: 15px 20px;
+        border: 2px solid #ccc;
+    }
+    .contenedorDuracion .cont-duracionCurso .duracionCurso{
+        width: 100%;
+        background: #fff;
+        padding: 15px 20px;
+        border: 2px solid #ccc;
+    }
+    .contenedorDuracion .cont-unidadTiempo .unidadTiempo{
+        width: 100%;
+        background: #fff;
+        padding: 15px 20px;
+        border: 2px solid #ccc;
+    }
+    
+    .contenedor .fechaInicial{
+        width: 100%;
+        background: #fff;
+        padding: 15px 20px;
+        border: 2px solid #ccc;
+    }
+    .contenedor .fechaTerminacion{
+        width: 100%;
+        background: #fff;
+        padding: 15px 20px;
+        border: 2px solid #ccc;
+    }
+    .contenedor .horarioClaseEntrada{
+        width: 100%;
+        background: #fff;
+        padding: 15px 20px;
+        border: 2px solid #ccc;
+    }
+    .contenedor .horarioClaseSalida{
+        width: 100%;
+        background: #fff;
+        padding: 15px 20px;
+        border: 2px solid #ccc;
+    }
+    .contenedor .select{
+        width: 100%;
+        background: #fff;
+        padding: 15px 20px;
+        border: 2px solid #ccc;
+    }
+    .contenedorDuracion .cont-duracionCurso .contenidoForm form{
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column;
+    }
+    .contenedorDuracion .cont-duracionCurso .contenidoForm form .cont-input{
+        width: 100% !important;
+    }
+    .contenedorDuracion .cont-duracionCurso .contenidoForm form .cont-botones{
+        width: 100% !important;
+    }
+    .contenedorDuracion .cont-unidadTiempo .contenidoForm form{
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column;
+    }
+    .contenedorDuracion .cont-unidadTiempo .contenidoForm form .cont-input{
+        width: 100% !important;
+    }
+    .contenedorDuracion .cont-unidadTiempo .contenidoForm form .cont-botones{
+        width: 100% !important;
+    }
+    @media (max-width: 450px){
+        .cont-principal .centrador{
+            width: 90%;
+            margin: 0 auto;
+        }
+        .cont-principal .centrador form{
+            width: 100%;
+        }
+    }
+</style>
+<div class="cont-principal">
+    <div class="centrador">
+        <div class="contenedorDatos">
+            <div class="cont-imagen" id="cont-imagen">
+               
+            </div>
+            <h2>Nombre del Curso</h2>
+            <div class="cont-titulo" id="cont-titulo">
+                
+            </div>
+            <h2>Maestro</h2>
+            <div class="cont-maestro contenedor" id="cont-maestro">
+                
+            </div>
+            <h2>Descripción</h2>
+            <div class="cont-descripcion" id="cont-descripcion">
+                
+            </div>
+            <h2>Duracion del Curso</h2>
+            <div class="contenedorDuracion">
+                <div class="cont-duracionCurso" id="cont-duracionCurso">
+
+                </div>
+                <div class="cont-unidadTiempo" id="cont-unidadTiempo">
+    
+                </div>
+            </div>
+            <h2>Fecha Inicial del curso</h2>
+            <div class="cont-fechaInicial contenedor" id="cont-fechaInicial">
+
+            </div>
+            <h2>Fecha de terminación del curso</h2>
+            <div class="cont-fechaTerminacion contenedor" id="cont-fechaTerminacion">
+
+            </div>
+            <h2>Horario de entrada</h2>
+            <div class="cont-horarioClaseEntrada contenedor" id="cont-horarioClaseEntrada">
+
+            </div>
+            <h2>Horario de salida</h2>
+            <div class="cont-horarioClaseSalida contenedor" id="cont-horarioClaseSalida">
+
+            </div>
+
+        </div>
+        
+    </div>
+    
+</div>
+
+<script>
+    $(document).ready(function() {
+        MagicPlanet.MisScripts.TraerCurso();
+        function windowGuid() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                var r = Math.random() * 16 | 0, v = c === 'x' ? r : r & 0x3 | 0x8;
+                return v.toString(16);
+            });
+        }
+
+        var img2 = windowGuid();
+        var imagen = img2+'.png';
+        $('#nombreImg').val(imagen);
+        MagicPlanet.MisScripts.getTipoProductos();
+
+        const inpFile = document.getElementById("imagenSubParrafo");
+        const previewContainer = document.getElementById("imagePreview");
+        const previewImage = previewContainer.querySelector(".image-preview__img");
+
+        console.log("inpFile: "+inpFile)
+        console.log("previewContainer: "+previewContainer)
+        console.log("previewImage: "+previewImage)
+        
+        inpFile.addEventListener("change", function(){
+            const file = this.files[0];
+            console.log(file);
+            if(file){
+                const reader = new FileReader();
+                previewImage.style.display = "block";
+                reader.addEventListener("load", function(){
+                    console.log(this);
+                    previewImage.setAttribute("src", this.result);
+                });
+                reader.readAsDataURL(file);
+            }else{
+                previewImage.style.display = null;
+            }
+        });
+
+    } );
+    
+</script>

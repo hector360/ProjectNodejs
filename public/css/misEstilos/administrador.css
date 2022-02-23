@@ -1,0 +1,129 @@
+
+.cont-principal{
+    width: 100%;
+    height: 95%;
+    
+}
+.cont-principal .centrador{
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    /* background: blue; */
+}
+.cont-principal .centrador form{
+    min-width: 500px;
+    width: 50%;
+    
+    height: 100%;
+    margin: 0 auto;
+    padding: 5% 0;
+}
+.cont-principal .centrador form .cont-seccion{
+    width: 60%;
+    margin: 0 auto;
+    /* background: green; */
+}
+.cont-principal .centrador form .cont-seccion h2{
+    width: 100%;
+    text-align: left;
+    padding: 15px 5px;
+}
+.cont-principal .centrador form .cont-seccion input{
+    width: 100%;
+    padding: 10px;
+    border: none;
+}
+.cont-principal .centrador form .cont-seccion .botonEnvio{
+    width: 100%;
+    margin: 15px 0;
+    padding: 10px;
+    text-align: center;
+    font-size: 22px;
+    background: #F1DB35;
+    border-radius: 8px;
+}
+
+/* banners para cursos y posts */
+
+
+    .contBanner{
+        background: #fff;
+        width: 200px;
+        max-height: 20%;
+        /* max-height: 400px; */
+        -webkit-box-shadow: 5px 5px 5px -6px rgba(0,0,0,0.75);
+        -moz-box-shadow: 5px 5px 5px -6px rgba(0,0,0,0.75);
+        box-shadow: 5px 5px 5px -6px rgba(0,0,0,0.75);
+        display: inline-block;
+        margin: 10px;
+    }
+    .contBanner:hover{
+        -webkit-box-shadow: 5px 5px 10px -5px rgba(0,0,0,0.75);
+        -moz-box-shadow: 5px 5px 10px -5px rgba(0,0,0,0.75);
+        box-shadow: 5px 5px 10px -5px rgba(0,0,0,0.75);
+    }
+    .contBanner .centrador{
+        width: 90%;
+        margin: 0 auto;
+        padding: 5% 0;
+    }
+    .contBanner .centrador .seccion1{
+        width: 100%;
+    }
+    .contBanner .centrador .seccion1 img{
+        width: 100%;
+    }
+    .contBanner .centrador .seccion2{
+        width: 100%;
+    }
+    .contBanner .centrador .seccion2 h2{
+        width: 100%;
+        height: 54px;
+        margin: 10px 0;
+        font-size: 2vw;
+    }
+    .contBanner .centrador .seccion2 p{
+        width: 100%;
+        height: 50px;
+        font-size: 14px;
+        color: darkgray;
+        overflow: hidden;
+    }
+    .contBanner .centrador .seccion2 .centrado{
+        width: 100%;
+        display: flex;
+    }
+    .contBanner .centrador .seccion2 .centrado a{
+        width: 38%;
+        background: #43BF4F;
+        border: 1px solid #2CAD38;
+        color: #D2FED6;
+        border-radius: 8px;
+        padding: 5px;
+        text-align: center;
+        display: inline-block;
+        margin: 0 10px;
+        font-size: 18px;
+    }
+    .contBanner .centrador .seccion2 .centrado a:hover{
+        background: #D2FED6;
+        border: 1px solid #2CAD38;
+        color: #43BF4F;
+    }
+    .botonEliminarP{
+        width: 43%;
+        background: #CE3128;
+        border: 1px solid #B6241B;
+        color: #FFE3E1;
+        border-radius: 8px;
+        padding: 5px;
+        text-align: center;
+        display: inline-block;
+        margin: 0 10px;
+        font-size: 18px;
+    }
+    .botonEliminarP:hover{
+        background: #FFE3E1;
+        border: 1px solid #B6241B;
+        color: #CE3128;
+    }

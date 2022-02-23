@@ -1,0 +1,162 @@
+<%- layout('layouts/layoutSistemaO') %>
+
+<style>
+    .cont_principal{
+        width: 100%;
+    }
+    .cont_principal .centrador{
+        width: 100%;
+    }
+    .cont_principal .centrador .cont-productos{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .caja-prod{
+        width: 30%;
+        height: 188px;
+        border: 1px solid #ccc;
+        margin: 10px;
+    }
+    .caja-prod .cont-titulo{
+        width: 100%;
+    }
+    .caja-prod .cont-titulo h2{
+        width: 100%;
+        text-align: center;
+        font-family: sans-serif;
+        font-size: 20px;
+    }
+    .caja-prod .cont-imagen{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .caja-prod .cont-imagen img{
+        width: 100%;
+    }
+
+
+    .seleccionado{
+        border: 1px solid red;
+
+    }
+    .carro{
+        width: 100%;
+        display: flex;
+        border: 1px solid #ccc;
+        padding: 10px;
+        box-sizing: border-box;
+        flex-wrap: wrap;
+    }
+    .carro .cont-titulo{
+        width: 30%;
+    }
+    .carro .cont-titulo h2{
+        width: 100%;
+        font-family: sans-serif;
+        font-size: 20px;
+    }
+    .carro .cont-cantidad{
+        width: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .carro .seccion{
+        width: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .carro .cont-cantidad .cajaMenos{
+        width: 50px;
+        height: 50px;
+        border: 2px solid #000;
+        padding: 10px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 5px;
+        font-size: 24px;
+    }
+    .carro .cont-cantidad input{
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        text-align: center;
+        border: 2px solid #000;
+    }
+    .carro .cont-cantidad .cajaMas{
+        width: 50px;
+        height: 50px;
+        border: 2px solid #000;
+        padding: 10px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 5px;
+        font-size: 24px;
+    }
+    .carro .seccion .dato{
+        width: 100%;
+        text-align: center;
+        font-size: 20px;
+        font-family: sans-serif;
+    }
+   .cont-nombres{
+        width: 100%;
+        display: flex;
+        
+   }
+   .cont-nombres .caja-nombre{
+        width: 100%;
+        display: flex;
+   }
+   .cont-nombres .titulo{
+        width: 50%;
+   }
+   .cont-nombres .titulo h2{
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        padding: 10px;
+   }
+   .cont-nombres .nombre{
+        width: 50%;
+   }
+   .cont-nombres .nombre input{
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+   }
+</style>
+<div class="cont_principal">
+    <div class="centrador">
+        <div class="cont-productos" id="cont-productos">
+
+        </div>
+        <div class="cont-carro" id="cont-carro">
+
+        </div>
+        <div class="cont-nombres" id="cont-nombres">
+            
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        const current_url = new URL(window.location.href);
+        const search_params = current_url.searchParams;
+        const id = search_params.get('id');
+        
+        MagicPlanet.MiSistema.traerProductosCarro();
+        
+        
+    } );
+    
+</script>

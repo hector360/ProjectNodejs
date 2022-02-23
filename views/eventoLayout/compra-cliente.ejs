@@ -1,0 +1,506 @@
+<%- layout('layouts/eventoLayout') %>
+<style>
+   
+    .cont-principal{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .contP{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        /* flex-direction: column; */
+        justify-content: center;
+        align-items: center;
+        overflow-y: auto;
+        padding: 0;
+        box-sizing: border-box;
+        flex-wrap: wrap;
+    }
+    .secciones{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+    .cont-principal .centrando{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .cont-principal .centrador{
+        margin: 0 auto;
+        width: 90%;
+        border-radius: 10px;
+        padding: 30px;
+        box-sizing: border-box;
+        background: rgba(255,255,255,0.90);
+        /* height: 70%; */
+        -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    }
+    .cont-principal .centrador .cont-tipoProductos{
+        width: 100%;
+        padding: 10px 0;
+        box-sizing: border-box;
+    }
+    .cont-principal .centrador .cont-tipoProductos select{
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+        font-size: 20px;
+        font-family: sans-serif;
+    }
+    .cont-principal .centrador .cont-producto{
+        width: 100%;
+        padding: 10px 0;
+        box-sizing: border-box;
+    }
+    .cont-principal .centrador .cont-producto select{
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+        font-size: 20px;
+        font-family: sans-serif;
+    }
+    .cont-principal .centrador .cont-imagenP{
+        width: 60%;
+        margin: 0 auto;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+    .cont-principal .centrador .cont-imagenP img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+    .cont-principal .centrador .cont-input{
+        width: 100%;
+    }
+    .cont-principal .centrador .cont-input input{
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+        border: none;
+    }
+    .cont-horasExtra{
+        width: 100%;
+        padding: 10px 0;
+    }
+    .cont-horasExtra input{
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+    .cont-boton{
+        width: 100%;
+    }
+    .cont-boton button{
+        width: 90%;
+        padding: 15px;
+        color: #fff;
+        background: cornflowerblue;
+        border: none;
+        box-sizing: border-box;
+        margin: 15px auto;
+        font-size: 24px;
+        font-family: sans-serif;
+    }
+    .cont-boton button:hover{
+        padding: 15px;
+        color: #fff;
+        background: #4FBFFF;
+    }
+
+    .cont-boton .boton{
+        width: 100%;
+        border-radius: 15px;
+        background: #17a2b8;
+        box-shadow:  5px 5px 10px #073d5b, -5px -5px 10px #09537b;
+        display: block;
+        color:white;
+        font-size: 1.3em;
+        padding:10px;
+        margin-top:20px;
+
+    }
+    .seccion-abajo{
+        width: 100%;
+        /* display: flex; */
+    }
+    .cont-datos{
+        width: 100%;
+        margin: 0px 0 15px 0;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 15px;
+        box-shadow:  5px 5px 10px #073d5b, -5px -5px 10px #09537b;
+    }
+    .cont-datos{
+        text-align: left!important;
+    }
+    .cont-datos h3{
+        font-size: 1.3em;
+        font-family: sans-serif;
+        color:white;
+        padding-left:10px;
+    }
+    .cont-datos .dato{
+        font-size: 1.3em;
+        color:white;
+        font-weight: 600;
+        padding-right: 10px;
+    }
+    .seccion-existente{
+        width: 100%;
+    }
+    .seccion-existente .usuarioExistente{
+        width: 100%;
+        padding: 15px;
+        font-size: 18px;
+        font-family: sans-serif;
+    }
+
+    .seccion-carro{
+            width: 100%;
+        }
+        .seccion-carro .carro{
+            width: 100%;
+            margin: 10px 0;
+        }
+        .seccion-carro .carro .centrador{
+            width: 100%;
+            border-radius: 15px;
+            display: flex;
+            padding: 10px;
+            box-sizing: border-box;
+            box-shadow:  5px 5px 10px #073d5b, -5px -5px 10px #09537b;
+            margin-bottom:20px;
+        }
+        .seccion-carro .carro .centrador .caja{
+            width: 100%;
+            text-align: left;
+        }
+        .seccion-carro .carro .centrador .caja h2{
+            width: 100%;
+            font-size: 1.2em;
+            font-family: helvetica, sans-serif;
+            color:#ccc;
+        }
+        .seccion-carro .carro .centrador .caja .cont-producto{
+            width: 100%;
+            font-size: 1.1em;
+            font-family: helvetica, sans-serif;
+            color:white;
+        }
+        .seccion-carro .carro .centrador .caja .cont-producto span{ 
+            width: 100%;
+        }
+        .error-vacio{
+            width: 100%;
+        }
+        .error-vacio .error{
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 0 !important;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .removerCompra{
+            width: 50px;
+            height: 30px;
+            box-shadow:  5px 5px 10px #073d5b, -5px -5px 10px #09537b;
+        }
+        .removerCompra img{
+            width: 70%;
+        }
+        .cont-total{
+            width: 100%;
+        }
+        .cont-total .caja{
+            width: 100%;
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow:  5px 5px 10px #073d5b, -5px -5px 10px #09537b;
+            display: block;
+            min-height: 50px;
+            margin-bottom: 20px;
+        }
+        .cont-total .caja h2{
+            width: 50%;
+            font-size: 24px;
+            font-family: sans-serif;
+            display: inline-block;
+            float: left;
+            text-align: left;
+            padding-left: 10px;
+        }
+        .cont-total .caja .dato{
+            width: 50%;
+            font-size: 24px;
+            font-family: sans-serif;
+            display: inline-block;
+            float: left;
+            text-align: right;
+            padding-right: 10px;
+            color:white;
+        }
+
+        .cont-seccionPago{
+            width: 100%;
+            padding: 10px 0;
+        }
+        .cont-seccionPago .pago-input{
+            width: 100%;
+            padding: 15px 0;
+        }
+        .cont-seccionPago .pago-input input{
+            width: 100%;
+            padding: 15px;
+            box-sizing: border-box;
+            font-size: 24px;
+            font-family: sans-serif;
+        }
+        .cont-seccionPago .pago-input button{
+            width: 100%;
+            padding: 15px;
+            box-sizing: border-box;
+            border-radius: 15px;
+            background: #ff8c00;
+            box-shadow:  5px 5px 10px #073d5b, -5px -5px 10px #09537b;
+            color: #fff;
+            border: none;
+            font-size: 24px;
+            font-family: sans-serif;
+            margin-top:30px;
+        }
+        .cont-principal .cont-mensaje{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+        .cont-principal .cont-mensaje .mensaje{
+            width: 30%;
+            padding: 25px;
+            background: cornflowerblue;
+            color: #fff;
+            font-size: 30px;
+            text-align: center;
+        }
+        
+        .seccion-persona h2{
+            font-size: 24px;
+            font-family: sans-serif;
+        }
+        .seccion-persona .cont-input input{
+            font-size: 18px;
+            font-family: sans-serif;
+        }
+        .cont-cont-tipoPago h2{
+            font-size: 24px;
+            font-family: helvetica, sans-serif;
+        }
+        .cont-cont-tipoPago select{
+            font-size: 20px;
+            font-family: sans-serif;
+        }
+        .cont-seccionPago h2{
+            font-size: 20px;
+            font-family: sans-serif;
+        }
+        .cont-cajaTipoPago{
+            margin-top:40px;
+        }
+        .cont-cajaTipoPago h2{
+            font-size: 1px;
+            font-family: sans-serif;
+            display:none;
+        }
+
+        
+        .cont-cajaSeccionP{
+            
+        }
+        .cont-cajaSeccionP h2{
+            font-size: 1em;
+            font-family: helvetica, sans-serif;
+        }
+
+        .cont-cajaSeccionP .cont-cambio{
+            border-radius: 15px;
+            background: #08486b;
+            box-shadow:  5px 5px 10px #073d5b, -5px -5px 10px #09537b;
+            height: 50px;
+        }
+        .contenedorError {
+            width: 100%;
+        }
+        .cont-error{
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            padding: 10px;
+            font-size: 20px;
+            text-align: center;
+        }
+        .contenedor-icono{
+            width: 100%;
+            padding: 10px;
+        }
+        .cont-icon{
+            width: 20%;
+            background: #B276D7;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .cont-icon a{
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+        }
+
+        .cont-imagenP img{
+            width: 100%;
+            box-shadow:  5px 5px 10px #073d5b,
+             -5px -5px 10px #09537b;
+             border-radius: 15px;
+        }
+        .cont-mensaje{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: cornflowerblue;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 200px;
+        }
+        .mensaje{
+            color: #fff;
+            font-size: 20px;
+        }
+        .regresar a{
+            color: #fff;
+            font-size: 20px;
+        }
+        
+</style>
+<div class="planeta"><img src="/img/planeta.png" alt="" class="img-fluid"></div>
+<div class="container" id="cont-principal">
+    <div class="row">
+        <div class="col-3">
+            <a href="/registro-evento" class="btn btn-back">
+                <div class="circle"><i class="fas fa-arrow-left"></i></div> Regresar
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="card mt-10p">
+                <div class="error-vacio" id="error-vacio">
+    
+                </div>
+                <div class="form-group">
+                    <select name="productosEntrada" id="productosEntrada" onchange="MagicPlanet.MisScripts.traerProductosEntrada()">
+                        <option value="membresias">Membresias</option>
+                        <option value="tarjetasderegalo">Tarjetas de regalo</option>
+                        <option value="tarjeta-fiesta">Tarjetas de Cumpleaños</option>
+                        <option value="entrada">Entrada</option>
+                    </select>
+                </div>
+                <div class="form-group" id="contCajas">
+                    <div class="cont-producto" id="cont-producto">
+        
+                    </div>
+                    <div class="cont-imagenP" id="cont-imagenP">
+            
+                    </div>
+                    
+                    <div class="cont-horasExtra" id="cont-horasExtra" >
+            
+                    </div>
+                    <!-- <div class="seccion-existente" id="seccion-existente">
+                        <select class="usuarioExistente" id="usuario-existente" name="usuario-existente" onchange="MagicPlanet.MisScripts.existeOno()">
+                            <option value="nuevo-nino" selected>Nuevo Niño</option>
+                            <option value="nino-existente">Niño Existente</option>
+                        </select>
+                    </div> -->
+                    <div class="seccion-persona" id="seccion-persona">
+                        <div class="cont-input" id="contSubUsuario">
+                            <input type="text" name="nombreNino" id="nombreNino" placeholder="Nombre del niño" /> 
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="seccion-abajo">
+                    <div class="cont-datos">
+                        <div class="row">
+                            <div class="col-4"><h3>Precio: </h3></div>
+                            <div class="col-8 text-right"><div class="dato" id="cont-precio"></div></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4"><h3>Usuario: </h3></div>
+                            <div class="col-8 text-right"><div class="dato" id="cont-usuario"></div></div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="precioR" id="precioR" />
+                    <button class="btn btn-sec btn-block mt-10p" onclick="MagicPlanet.MisScripts.agregarCompra()">Agregar</button>
+                </div>
+                
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card mt-10p">
+                <div class="seccion-carro" id="datos-carro"> 
+                    
+                    
+                </div>
+                <div class="cont-total" id="cont-total">
+                    
+                </div>
+                <div class="cont-tipoPago" id="cont-tipoPago">
+    
+                </div>
+                <div class="cont-seccionPago" id="cont-seccionPago">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<div class="cohete"><img src="/img/cohete.png" alt="" class="img-fluid"></div>
+
+<script>
+    $(document).ready(async function() {
+        
+        // MagicPlanet.MisScripts.traerBrazaletes();
+    
+        const current_url = new URL(window.location.href);
+        const search_params = current_url.searchParams;
+        const id = search_params.get('id');
+        if(id == null){
+            window.location.href = "/registro-evento";
+        }
+        MagicPlanet.MisScripts.traerProductosEntrada(id);
+        MagicPlanet.MisScripts.cambiarProducto();
+
+        
+    })
+
+</script>

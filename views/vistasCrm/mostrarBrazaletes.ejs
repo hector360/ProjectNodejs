@@ -1,0 +1,75 @@
+<%- layout('layouts/main') %>
+<style>
+    .contPrincipal{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .contPrincipal .centrador{
+        width: 60%;
+    }
+    .contPrincipal .centrador .contBrazaletes{
+        width: 100%;
+    }
+    .contPrincipal .centrador .contBrazaletes table{
+        width: 100%;
+    }
+    .contPrincipal .centrador .contBrazaletes table{
+        width: 100%;
+    }
+    tr th{
+        padding: 1vw;
+    }
+    tr td{
+        padding: 1vw;
+    }
+    .centrado{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
+<div class="contPrincipal">
+    <div class="centrador">
+        <div class="crear">
+            <div class="centrado">
+                <h2><a href="/createBrazalete"><i class="fa fa-plus-circle"></i> Crear Brazalete</a></h2>
+                <h2><a href="/vincularBrazalete"> Vincular Brazalete</a></h2>
+            </div>
+        </div>
+        <div class="contBrazaletes">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id Brazalete</th>
+                            <th>Estado</th>
+                            <th>Tipo Brazalete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contBrazalete">
+                        
+                    </tbody>
+                </table>
+        </div>
+    </div>
+    
+</div>
+
+<script>
+    $(document).ready(function() {
+        // function windowGuid() {
+        //     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        //         var r = Math.random() * 16 | 0, v = c === 'x' ? r : r & 0x3 | 0x8;
+        //         return v.toString(16);
+        //     });
+        // }
+
+        // var idBrazalete = windowGuid();
+        // $('#idBrazalete').val(idBrazalete);
+        // $('#nombreBrazalete').val(idBrazalete);
+        MagicPlanet.MisScripts.traerBrazaletes();
+        
+    })
+
+</script>

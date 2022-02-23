@@ -1,0 +1,266 @@
+<%- layout('layouts/main') %>
+
+<style>
+    .centrador{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .centrador .contBotonScanner{
+        width: 100px;
+        height: 100px;
+        background: green;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .centrador .contBotonScanner .boton{
+        width: 90px;
+        height: 90px;
+        background: #CE4444;
+        border-radius: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 20px;
+        color: #fff;
+        font-family: sans-serif;
+    }
+
+    .cont-input{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 0;
+    }
+    form{
+        width: 60%;
+        margin: 0 auto;
+    }
+    .cont-input .caja{
+        width: 80%;
+        border: 1px solid #000;
+        padding: 15px;
+    }
+    .cont-input .boton{
+        padding: 15px;
+        background: burlywood;
+        color: #fff;
+        width: 18%;
+    }
+    .cont-input input{
+        padding: 15px;
+        width: 80%;
+    }
+    .cont-input select{
+        width: 100%;
+        padding: 15px;
+    }
+
+    .contCamera{
+        width: 500px;
+        height: 500px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #qr-shaded-region{
+        border-color: rgba(0, 0, 0, 0) !important;
+        width: 100% !important;
+        height: 100% !important;
+        border-width: 120.5px 118px !important;
+    }
+    .cont-personasUsuarios .cont-persona{
+        width: 100%;
+        display: flex;
+    }
+    .cont-personasUsuarios .cont-persona .seccion{
+        /* width: 100%; */
+        width: 50%;
+    }
+    .cont-personasUsuarios .cont-persona .seccion h2{
+        /* width: 100%; */
+        padding: 15px;
+        font-size: 24px;
+    }
+    .cont-personasUsuarios .cont-persona .seccion .horasGlobales{
+        /* width: 100%; */
+        padding: 15px;
+        font-size: 20px;
+    }
+    .cont-personasUsuarios .cont-titulos{
+        width: 100%;
+        display: flex;
+    }
+    .cont-personasUsuarios .cont-titulos .seccion{
+        /* width: 100%;
+        display: flex; */
+        width: 50%;
+    }
+    .cont-personasUsuarios .cont-titulos .seccion h2{
+        width: 100%;
+        padding: 15px;
+        font-size: 24px;
+    }
+    .seccion .botonSeleccionar{
+        padding: 15px;
+        background: cornflowerblue;
+        color: #fff;
+        text-align: center;
+        font-size: 20px;
+    }
+    .cont-personaSeleccionada{
+        width: 100%;
+        background: #fff;
+        border: 1px solid #000;
+        padding: 20px;
+        box-sizing: border-box;
+        margin: 15px 0;
+    }
+    .cont-tipoBrazalete{
+        width: 100%;
+        background: #fff;
+        border: 1px solid #000;
+        padding: 20px;
+        box-sizing: border-box;
+        margin: 15px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .cont-personaSeleccionada .personaS{
+        width: 100%;
+        text-align: center;
+        font-size: 20px;
+        
+    }
+    .botonVincular{
+        padding: 15px;
+        background: coral;
+        color: #fff;
+        text-align: center;
+    }
+    .cont-barraPersonas{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .cont-seccion{
+        padding: 15px;
+        box-sizing: border-box;
+        font-size: 20px;
+        margin: 10px 0;
+    }
+    .botonE{
+        padding: 15px;
+        color: #fff;
+        background: brown;
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<div id="reader" class="contCamera"></div>
+<!-- <div class="cont-botones">
+    <div class="contBotonScanner">
+        <div class="boton" id="botonEscanner">Escanear Codigo Brazalete</div>
+    </div>
+</div> -->
+
+<form>
+    <input type="hidden" name="codigo_brazalete" id="codigo_brazalete" />
+    <input type="hidden" name="identificadorPersona" id="identificadorPersona" />
+    <input type="hidden" name="id_usuario_personalizado" id="id_usuario_personalizado" />
+    <input type="hidden" name="tBrazalete" id="tBrazalete" />
+    <h2>Codigo Brazalete</h2>
+    <div class="cont-input">
+        <div class="caja" id="iCodigoBrazalete">
+            
+        </div>
+        <div class="boton" id="botonEscanner">Escanear Codigo Brazalete</div>
+    </div>
+    <!-- <h2>Correo Usuario</h2>
+    <div class="cont-input">
+        <input type="text" name="email_usuario" id="email_usuario" />
+        <div class="boton" id="botonBusqueda">Buscar Usuario</div>
+    </div> -->
+    <h2>Usuarios</h2>
+    <div class="cont-personasUsuarios" id="cont-personasUsuarios">
+
+    </div>
+    <div class="cont-personaSeleccionada" id="cont-personaSeleccionada">
+        
+    </div>
+    <div class="cont-tipoBrazalete" id="cont-tipoBrazalete">
+        
+    </div>
+    <!-- <div class="contUsuario" id="contUsuario">
+
+    </div> -->
+    <div class="cont-input" id="cont-select-persona">
+
+    </div>
+    <div class="cont-input" id="cont-selectTipo">
+       
+    </div>
+    <div class="cont-vinculados" id="cont-vinculados">
+       
+    </div>
+    <div class="botonVincular" id="botonVincular" onclick="MagicPlanet.MisScripts.vincularBrazalete()">Vincular</div>
+</form>
+
+<script src="./js/minified/html5-qrcode.min.js"></script>
+<script>
+        const current_url = new URL(window.location.href);
+        const search_params = current_url.searchParams;
+        const id = search_params.get('id');
+
+    MagicPlanet.MisScripts.traerUsuariosPersonas(id);
+    MagicPlanet.MisScripts.traerVinculosBrazalete(id);
+
+    $('#id_usuario_personalizado').val(id);
+    // document.getElementById('botonBusqueda').addEventListener('click',()=>{
+    //     MagicPlanet.MisScripts.getUsuarioVinculacion();
+        
+    // });
+
+    Html5Qrcode.getCameras().then(devices => {
+    /**
+     * devices would be an array of objects of type:
+     * { id: "id", label: "label" }
+     */
+    if (devices && devices.length) {
+        var cameraId = devices[0].id;
+        // .. use this to start scanning.
+        const html5QrCode = new Html5Qrcode(/* element id */ "reader");
+        document.getElementById("botonEscanner").addEventListener("click", ()=>{
+            html5QrCode.start(
+        cameraId,
+        {
+            fps: 10,    // Optional frame per seconds for qr code scanning
+            qrbox: 250  // Optional if you want bounded box UI
+        },
+        qrCodeMessage => {
+            // do something when code is read
+            
+            if(qrCodeMessage != ""){
+                console.log(qrCodeMessage)
+                // window.location.href = qrCodeMessage;
+                $('#codigo_brazalete').val(qrCodeMessage);
+                $('#iCodigoBrazalete').html(`<span>${qrCodeMessage}</span>`)
+                $('#reader').html('');
+            }
+            html5QrCode.stop()
+        },
+        errorMessage => {
+        })
+        .catch(err => {
+        });
+        });
+        
+    }
+    }).catch(err => {
+});
+</script>

@@ -1,0 +1,68 @@
+<%- layout('layouts/main') %>
+<style>
+    .contCrearCartelera{
+        width: 100%;
+    }
+    .contCrearCartelera .centrador{
+        width: 50%;
+        margin: 0 auto;
+    }
+    .contCrearCartelera .centrador form{
+        width: 100%;
+    }
+    .contCrearCartelera .centrador form h2{
+        width: 100%;
+    }
+    .contCrearCartelera .centrador form .contInput{
+        width: 100%;
+    }
+    .contCrearCartelera .centrador form .contInput input{
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    .contCrearCartelera .centrador form .contInput select{
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+</style>
+
+<div class="contCrearCartelera">
+    <div class="centrador">
+       <form action="/crearCartelera" method="POST">
+           <h2>Fecha Cartelera</h2>
+           <div class="contInput">
+            <input type="date" id="fechaFuncion" name="fechaFuncion"
+                value="2021-03-01"
+                min="2021-01-01" max="2025-12-01">
+           </div>
+           <h2>Hora de entrada de la función</h2>
+           <div class="contInput">
+            <input type="time" id="fechaHoraEntrada" name="fechaHoraEntrada"
+                min="09:00" max="18:00" required>
+           </div>
+           <h2>Hora de salida de la función</h2>
+           <div class="contInput">
+            <input type="time" id="fechaHoraSalida" name="fechaHoraSalida"
+                min="09:00" max="18:00" required>
+           </div>
+           <h2>Seleccionar Show</h2>
+           <div class="contInput" id="contSeleccionarShow">
+                
+           </div>
+           <div class="contInput">
+                    <button type="submit">Enviar</button>
+            </div>
+       </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        // MagicPlanet.MisScripts.GetMaestros();
+        $( "#datepicker" ).datepicker();
+        MagicPlanet.MisScripts.traerShows();
+    } );
+    
+</script>

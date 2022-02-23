@@ -1,0 +1,142 @@
+<%- layout('layouts/main') %>
+<style>
+    .cont-productos{
+        width: 100%;
+        height: 100%;
+    }
+    .cont-productos .cont-producto{
+        width: 30%;
+        min-width: 300px;
+        margin: 15px;
+        display: inline-block;
+
+        background: #fff;
+        /* max-height: 400px; */
+        -webkit-box-shadow: 5px 5px 5px -6px rgba(0,0,0,0.75);
+        -moz-box-shadow: 5px 5px 5px -6px rgba(0,0,0,0.75);
+        box-shadow: 5px 5px 5px -6px rgba(0,0,0,0.75);
+    }
+    .cont-productos .cont-producto .cont-imagen{
+        box-sizing: border-box;
+        width: 100%;
+        height: 400px;
+        padding: 15px;
+    }
+    .cont-productos .cont-producto .cont-imagen img{
+        width: 100% !important;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+    .cont-productos .cont-producto .cont-titulo{
+        width: 100%;
+        height: 76px;
+        text-align: center;
+        font-size: 20px;
+        padding: 8px 0;
+    }
+    .cont-productos .cont-producto .cont-descripcion{
+        width: 100%;
+        overflow: visible;
+    }
+    .cont-productos .cont-producto .cont-descripcion .seccion1{
+        width: 30%;
+        float: left;
+    }
+    .cont-productos .cont-producto .cont-descripcion .seccion1 .precio{
+        padding: 10px;
+    }
+    .cont-productos .cont-producto .cont-descripcion .seccion2{
+        width: 70%;
+        float: left;
+    }
+    .cont-productos .cont-producto .cont-descripcion .seccion2 .cont-botonE{
+        width: 35%;
+        background: #43BF4F;
+        border: 1px solid #2CAD38;
+        color: #D2FED6;
+        border-radius: 8px;
+        padding: 5px;
+        text-align: center;
+        display: inline-block;
+        margin: 0 10px;
+        font-size: 18px;
+    }
+    .cont-productos .cont-producto .cont-descripcion .seccion2 .cont-botonE:hover {
+        background: #D2FED6;
+        border: 1px solid #2CAD38;
+        color: #43BF4F;
+    }
+    .cont-productos .cont-producto .cont-descripcion .seccion2 .cont-botonP{
+        width: 35%;
+        background: #CE3128;
+        border: 1px solid #B6241B;
+        color: #FFE3E1;
+        border-radius: 8px;
+        padding: 5px;
+        text-align: center;
+        display: inline-block;
+        margin: 0 10px;
+        font-size: 18px;
+    }
+    .cont-productos .cont-producto .cont-descripcion .seccion2 .cont-botonP:hover {
+        background: #FFE3E1;
+        border: 1px solid #B6241B;
+        color: #CE3128;
+    }
+
+    @media (max-width: 450px){
+        .cont-productos .cont-producto{
+            width: 45%;
+            margin: 1vw;
+        }
+        .cont-productos .cont-producto .cont-imagen{
+            width: 100%;
+            height: 150px;
+            padding: 8px;
+        }
+        .cont-productos .cont-producto .cont-imagen img{
+            width: 100% !important;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+        }
+        .cont-productos .cont-producto .cont-titulo{
+            font-size: 5vw;
+            padding: 2vw 0;
+        }
+
+        .cont-productos .cont-producto .cont-descripcion .seccion2 .cont-botonE{
+            width: 85%;
+            padding: 1vw;
+            font-size: 4vw;
+        }
+        .cont-productos .cont-producto .cont-descripcion .seccion2 .cont-botonP{
+            width: 85%;
+            padding: 1vw;
+            font-size: 4vw;
+        }
+    }
+    
+</style>
+
+<div class="cont-principal">
+    <div class="crear">
+        <div class="centrador">
+            <h2><a href="/crear-producto"><i class="fa fa-plus-circle"></i> Crear Producto</a></h2>
+        </div>
+    </div>
+    <div class="centrador">
+        <div class="cont-productos" id="cont-productos">
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        MagicPlanet.MisScripts.obtenerProductos();
+
+    } );
+    
+</script>

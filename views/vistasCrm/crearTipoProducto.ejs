@@ -1,0 +1,177 @@
+<%- layout('layouts/main') %>
+<style>
+    .cont-principal{
+        width: 100%;
+    }
+    .cont-principal .centrador{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .cont-imagen{
+        width: 100%;
+        height: 400px;
+        text-align: center;
+        border: 5px dashed  #ccc;
+        position: relative;
+    }
+    .cont-imagen:hover{
+        border: 5px dashed  #55E142;
+        
+    }
+    .cont-imagen .cont-icono{
+        position: absolute;
+        top: 34%;
+        right: 25%;
+        margin: 0 auto;
+        font-size: 80px;
+        color: #ccc;
+    }
+    
+    .cont-imagen .cont-icono span{
+        font-size: 40px;
+    }
+    .cont-imagen input{
+        /* padding: 50px; */
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+    }
+    .colorHover{
+        color: #55E142 !important;
+    }
+    .esconder{
+        display: none;
+    }
+    .cont-cambiarImg{
+        width: 100%;
+        overflow: hidden;
+    }
+    .cont-cambiarImg .cambiarImagen{
+        width: 25%;
+        background: #f8d7da;
+        margin: 10px;
+        float: right;
+        padding: 10px 0;
+        border-radius: 12px;
+        border: 1px solid #f5c6cb;
+        color: #721c24;
+        text-align: center;
+    }
+    .cont-cambiarImg .cambiarImagen:hover{
+        background: #721c24;
+        border: 1px solid #f5c6cb;
+        color: #f8d7da;
+    }
+    .cont-cambiarImg .cambiarImagen i{
+        
+        margin-right: 5px;
+        
+    }
+    .cont-principal .centrador .image-preview {
+        width: 100%;
+    }
+    .cont-principal .centrador .image-preview img{
+        width: 100%;
+    }
+    .cont-principal .centrador .cont-seccion{
+        width: 100%;
+    }
+    .cont-principal .centrador .cont-seccion h2{
+        width: 100%;
+        font-size: 24px;
+    }
+    .cont-principal .centrador .cont-seccion select{
+        width: 100%;
+        font-size: 18px;
+        padding: 10px;
+    }
+    .cont-principal .centrador .cont-seccion button{
+        width: 100%;
+        font-size: 18px;
+        padding: 10px;
+        margin: 20px 0;
+        background: #F1DB33;
+    }
+    @media (max-width: 450px){
+        .cont-principal .centrador{
+            width: 90%;
+            margin: 0 auto;
+        }
+        .cont-principal .centrador form{
+            width: 100%;
+        }
+    }
+</style>
+<div class="cont-principal">
+    <div class="centrador">
+        <form action="/crearTipoProducto" method="POST" enctype="multipart/form-data" id="myPostForm" >
+            <input type="hidden" name="nombreImg" id="nombreImg" />
+            <div class="cont-imagen" id="cont-imagen" onmouseover="MagicPlanet.MisScripts.hoverIn()" onmouseout="MagicPlanet.MisScripts.hoverOut()">
+                <div class="cont-icono" id="cont-icono">
+                    <i class="fa fa-image"></i> <span>Agregar Imagen</span>
+                </div>
+                <input type="file" name="imagenSubParrafo" id="imagenSubParrafo" onchange="MagicPlanet.MisScripts.handleChange()" />
+            </div>
+            <div id="imagePreview" class="image-preview esconder">
+                <img src="" alt="Image" class="image-preview__img" />
+            </div>
+            <div class="cont-cambiarImg">
+                <div class="cambiarImagen esconder" id="cambiarImagen" onclick="MagicPlanet.MisScripts.cambiarImagen()"><i class="fa fa-times-circle"></i>Cambiar Imagen</div>
+            </div>
+            <div class="cont-seccion">
+                <h2>Nombre del Tipo Producto</h2>
+                <input type="text" name="nombreTipoProducto" id="nombreTipoProducto" />
+            </div>
+            <div class="cont-seccion">
+                <h2>Descripción</h2>
+                <input type="text" name="descripcion" id="descripcion" />
+            </div>
+            <div class="cont-seccion">
+                <button>Enviar</button>
+            </div>
+        </form>
+    </div>
+    
+</div>
+
+<script>
+    $(document).ready(function() {
+        function windowGuid() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                var r = Math.random() * 16 | 0, v = c === 'x' ? r : r & 0x3 | 0x8;
+                return v.toString(16);
+            });
+        }
+
+        var img2 = windowGuid();
+        var imagen = img2+'.png';
+        $('#nombreImg').val(imagen);
+        MagicPlanet.MisScripts.getTipoProductos();
+
+        const inpFile = document.getElementById("imagenSubParrafo");
+        const previewContainer = document.getElementById("imagePreview");
+        const previewImage = previewContainer.querySelector(".image-preview__img");
+
+        console.log("inpFile: "+inpFile)
+        console.log("previewContainer: "+previewContainer)
+        console.log("previewImage: "+previewImage)
+        
+        inpFile.addEventListener("change", function(){
+            const file = this.files[0];
+            console.log(file);
+            if(file){
+                const reader = new FileReader();
+                previewImage.style.display = "block";
+                reader.addEventListener("load", function(){
+                    console.log(this);
+                    previewImage.setAttribute("src", this.result);
+                });
+                reader.readAsDataURL(file);
+            }else{
+                previewImage.style.display = null;
+            }
+        });
+
+    } );
+    
+</script>

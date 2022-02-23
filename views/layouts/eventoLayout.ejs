@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Magic Planet</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/7929d36a7b.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+        
+        <script src="/js/MisScripts.js"></script>
+        <script>
+            var MagicPlanet = {};
+            
+            MagicPlanet.MisScripts = new MisScripts();
+        </script>
+    <style>
+        
+        body{
+            background: rgb(6,53,77);
+            background: linear-gradient(180deg, rgba(6,53,77,1) 0%, rgba(8,72,107,1) 30%, rgba(10,107,156,1) 82%, rgba(10,158,196,1) 100%);
+            height: 100vh;
+    }
+    .cohete{
+        width: 300px;
+        position:fixed;
+        right:30px;
+        bottom:0px;
+        z-index:-1;
+    }
+    .planeta{
+        position:fixed;
+        top:20px;
+        left:20px;
+        width: 110px;
+    }
+    .card{
+        background: rgba(8,72,107,1);
+        border:none;
+        padding:30px 40px 60px 40px!important;
+        border-radius:30px;
+        box-shadow:  10px 10px 30px #073d5b, -10px -10px 30px #09537b;
+        text-align: center;
+    }
+
+    .card h1{
+        color:white;
+        font-size: 2em!important;
+        font-weight: 300;
+        font-family: Helvetica, sans-serif;
+        margin-bottom:30px;
+    }
+
+    .card h2{
+        color:white;
+        font-size: 1.3em!important;
+        font-weight: 300;
+        font-family: Helvetica, sans-serif;
+        margin-bottom:10px;
+    }
+
+    .mb-40{
+        margin-bottom:40px;
+    }
+    .mt-20p{
+        margin-top:20%;
+    }
+    .mt-10p{
+        margin-top:7%;
+    }
+    .mt-5p{
+        margin-top:5%;
+    }
+    .btn-prim{
+        font-weight: 300px!important;
+        font-size: 1.5em!important;
+        border-radius: 15px;
+        background: rgba(8,72,107,1);
+        box-shadow:  5px 5px 10px #073d5b, -5px -5px 10px #09537b;
+        color:white;
+        height: 60px;
+    }
+
+    .btn-prim .circle{
+        width: 40px;
+        height: 40px;
+        border-radius: 50px;
+        background: rgba(8,72,107,1);
+        box-shadow:  4px 4px 8px #073d5b, -4px -4px 8px #09537b;
+        text-align: center;
+        font-size: 1em!important;
+        font-weight: 300!important;
+        display: inline-block;
+        float: left;
+        margin-left:10px;
+
+    }
+
+    .btn-sec{
+        font-weight: 300px!important;
+        font-size: 1.5em!important;
+        border-radius: 15px;
+        background: #17a2b8;
+        box-shadow:  5px 5px 10px #073d5b, -5px -5px 10px #09537b;
+        color:white;
+        height: 60px;
+    }
+
+    .btn-sec .circle{
+        width: 40px;
+        height: 40px;
+        border-radius: 50px;
+        background: #17a2b8;
+        box-shadow:  4px 4px 8px #148a9c, -4px -4px 8px #1abad4;
+        text-align: center;
+        font-size: 1em!important;
+        font-weight: 300!important;
+        display: inline-block;
+        float: left;
+        margin-left:10px;
+
+    }
+
+    .btn-back{
+        font-weight: 300px!important;
+        font-size: 1.5em!important;
+        border-radius: 15px;
+        background: #06354d;
+        box-shadow:  5px 5px 10px #052d41, -5px -5px 10px #073d59;
+        color:white;
+        height: 60px;
+    }
+
+    .btn-back .circle{
+        width: 40px;
+        height: 40px;
+        border-radius: 50px;
+        background: #06354d;
+        box-shadow:  4px 4px 8px #052d41, -4px -4px 8px #073d59;
+        text-align: center;
+        font-size: 1em!important;
+        font-weight: 300!important;
+        display: inline-block;
+        float: left;
+        margin-left:10px;
+
+    }
+
+    input {
+        border: 1px solid #09537b;
+        font-size: 16px;
+        padding: 15px 15px;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 15px;
+        background: #08486b!important;
+        box-shadow: inset 5px 5px 10px #073d5b, inset -5px -5px 10px #09537b;
+        margin-bottom:20px;
+        color:white;
+        height: 50px!important;
+    } 
+
+    select {
+        border: none;
+        font-size: 16px;
+        padding: 15px 15px;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 15px;
+        background: #08486b!important;
+        box-shadow: inset 5px 5px 10px #073d5b, inset -5px -5px 10px #09537b;
+        margin-bottom:20px;
+        color:white;
+        height: 50px;
+    }
+    /* .cont-principal .fondo-planetas{
+        width: 100%;
+        height: 100%;
+        background-image: url('/img/planetas.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    } */
+    </style>
+</head>
+<body>
+    <div class="fondo-p">
+        <%- body %>
+    </div>
+</body>
+</html>

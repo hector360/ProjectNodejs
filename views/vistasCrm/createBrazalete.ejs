@@ -1,0 +1,109 @@
+<%- layout('layouts/main') %>
+<style>
+    .contPrincipal{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .contPrincipal .centrador{
+        width: 50%;
+    }
+    .contPrincipal .centrador .contIcon{
+        margin: 2vw 0;
+    }
+    .contPrincipal .centrador .contIcon a{ 
+        font-size: 24px;
+        padding: 0 2vw;
+        background: #77C33D;
+        color: #fff;
+        border-radius: 10px;
+    }
+    .contPrincipal .centrador .contIcon a:hover{ 
+        background: #62A52E;
+    }
+    .contPrincipal .centrador form{
+        width: 100%;
+    }
+    .contPrincipal .centrador form .contInput{
+        width: 100%;
+        margin: 10px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .contPrincipal .centrador form .contInput input{
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+    .contPrincipal .centrador form .contInput select{
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+    .contPrincipal .centrador form .contInput button{
+        width: 70%;
+        margin: 0 auto;
+        padding: 10px;
+        border: none;
+        color: #fff;
+        background: #44B6CE;
+    }
+</style>
+<div class="contPrincipal">
+    <div class="centrador">
+        <div class="contIcon">
+            <a href="/mostrarBrazaletes"><i class="fa fa-long-arrow-left"></i></a>
+        </div>
+        <form action="/crearBrazalete" method="POST">
+            <h2>Id del Brazalete:</h2>
+            <div class="contInput">
+                <input type="hidden" name="codigo_brazalete" id="codigo_brazalete" />
+                <input type="hidden" name="urlqr" id="urlqr" />
+                <input type="text" name="nombreBrazalete" id="nombreBrazalete" disabled />
+            </div>
+            <h2>Estado del Brazalete:</h2>
+            <div class="contInput">
+                <select name="estado" id="estado">
+                    <option value="disponible">Disponible</option>
+                    <option value="ocupado">Ocupado</option>
+                </select>
+            </div>
+            <h2>Codigo QR: </h2>
+            <div class="contInput">
+                <img id="imagenQr" src="" />
+            </div>
+            <!-- <h2>Tipo de Brazalete:</h2>
+            <div class="contInput">
+                <select name="tipoBrazalete" id="tipoBrazalete">
+                    <option value="sencillo">Sencillo</option>
+                    <option value="premium">Premium</option>
+                </select>
+            </div> -->
+            <div class="contInput">
+                <button type="submit">Crear</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        function windowGuid() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                var r = Math.random() * 16 | 0, v = c === 'x' ? r : r & 0x3 | 0x8;
+                return v.toString(16);
+            });
+        }
+
+        var idBrazalete = windowGuid();
+
+        $('#codigo_brazalete').val(idBrazalete);
+        $('#nombreBrazalete').val(idBrazalete);
+        $('#imagenQr').attr("src",`https://chart.googleapis.com/chart?chs=400x400&cht=qr&chl=${idBrazalete}`);
+        $('#urlqr').val(`https://chart.googleapis.com/chart?chs=400x400&cht=qr&chl=${idBrazalete}`);
+        
+    })
+
+</script>

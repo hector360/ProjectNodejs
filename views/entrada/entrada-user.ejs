@@ -1,0 +1,62 @@
+<%- layout('layouts/main') %>
+
+<style>
+    body, html {
+        width: 100%;
+        height: 100%;
+    }
+    .contPrincipal{
+        width: 100%;
+        height: 100%;
+    }
+    .contPrincipal .centrador{
+        width: 70%;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .contPrincipal .centrador .caja{
+        width: 75%;
+        height: 200px;
+        margin: 20px 0;
+        border-radius: 10px;
+    }
+    .contPrincipal .centrador .caja a{
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .contPrincipal .centrador .caja a h2{
+        font-size: 30px;
+        color: #fff;
+    }
+    .morado{
+        background: #B874D8;
+    }
+    .verde{
+        background: #74D875; 
+    }
+</style>
+
+<div class="contPrincipal">
+    <div class="centrador">
+        <div class="caja morado">
+            <a href="/seleccion-usuario?id=registro">
+                <h2>Registrar Usuario</h2>
+            </a>
+            
+        </div>
+        <div class="caja verde">
+            <a href="/seleccion-usuario?id=busqueda">
+                <h2>Usuario existente</h2>
+            </a>
+        </div>
+    </div>
+</div>

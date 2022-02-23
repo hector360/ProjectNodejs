@@ -1,0 +1,398 @@
+<%- layout('layouts/main') %>
+<style>
+    .seccion-post{
+        width: 100%;
+        height: 100%;
+    }
+    .seccion-post .cont-pagina{
+        width: 50%;
+        margin: 0 auto;
+    }
+    .seccion-post .cont-pagina .cont-titulo{
+        width: 100%;
+        
+    }
+    .seccion-post .cont-pagina .cont-titulo h2{
+        font-size: 24px;
+        padding: 20px 5px;
+        margin-top: 20px;
+    }
+    .seccion-post .cont-pagina .cont-titulo h2:hover{
+        border: 3px dashed #55E142;
+    }
+    .seccion-post .cont-pagina .cont-img {
+        width: 100%;
+        padding: 20px 0;
+    }
+    .seccion-post .cont-pagina .cont-img img{
+        width: 100%;
+    }
+    .seccion-post .cont-pagina .cont-descripcion{
+        width: 100%;
+        padding: 20px 0;
+    }
+    .cont-agregar form{
+        background: #F4F7FA !important;
+    }
+    .cont-imagen{
+        width: 100%;
+        height: 400px;
+        text-align: center;
+        border: 5px dashed  #ccc;
+        position: relative;
+    }
+    .cont-imagen:hover{
+        border: 5px dashed  #55E142;
+        
+    }
+    .cont-imagen .cont-icono{
+        position: absolute;
+        top: 34%;
+        right: 25%;
+        margin: 0 auto;
+        font-size: 80px;
+        color: #ccc;
+    }
+    
+    .cont-imagen .cont-icono span{
+        font-size: 40px;
+    }
+    .cont-imagen input{
+        /* padding: 50px; */
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+    }
+    .cont-area{
+        width: 100%;
+        padding: 20px 0;
+    }
+    .cont-area textarea{
+        resize: none;  
+        width: 100%;
+        height: 100px;
+    }
+    .colorHover{
+        color: #55E142 !important;
+    }
+    .cont-error{
+        width: 100%;
+    }
+    .cont-error .errorVacio{
+        width: 50%;
+        margin: 0 auto;
+        background: #fff3cd;
+        color: #856404;
+        text-align: center;
+        padding: 15px;
+        border: 1px solid #ffeeba;
+        border-radius: .25rem;
+    }
+    .seccion-extra {
+        width: 100%;
+    }
+    .seccion-extra .centrado{
+        width: 50%;
+        margin: 0 auto;
+    }
+    .seccion-extra .seccion-extra .centrado .cont-img{
+        width: 100%;
+    }
+    .seccion-extra .centrado .cont-img img{
+        width: 100%;
+    }
+    .seccion-extra .centrado .cont-parrafo{
+        width: 100%;
+        padding: 20px 0;
+    }
+    .seccion-extra .centrado .cont-parrafo p{
+        width: 100%;
+    }
+    .cont-seccion{
+        width: 100% !important;
+    }
+    .botonAgregar{
+        width: 40%;
+        padding: 10px;
+        border-radius: 8px;
+        background: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+        display: inline-block;
+        text-align: center;
+        margin: 20px 10px;
+    }
+    .botonRemover{
+        width: 40%;
+        padding: 10px;
+        border-radius: 8px;
+        background: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+        display: inline-block;
+        text-align: center;
+        margin: 20px 10px;
+    }
+    .image-preview{
+        width: 100%;
+        background: red;
+    }
+    .image-preview img{
+        width: 100%;
+        height: 400px;
+    }
+    .esconder{
+        display: none;
+    }
+    .cont-cambiarImg{
+        width: 100%;
+        overflow: hidden;
+    }
+    .cont-cambiarImg .cambiarImagen{
+        width: 25%;
+        background: #f8d7da;
+        margin: 10px;
+        float: right;
+        padding: 10px 0;
+        border-radius: 12px;
+        border: 1px solid #f5c6cb;
+        color: #721c24;
+        text-align: center;
+    }
+    .cont-cambiarImg .cambiarImagen:hover{
+        background: #721c24;
+        border: 1px solid #f5c6cb;
+        color: #f8d7da;
+    }
+    .cont-cambiarImg .cambiarImagen i{
+        
+        margin-right: 5px;
+        
+    }
+    .botonEnvio{
+        width: 60%;
+        background: #F1DB35;
+        padding: 10px;
+        margin: 0 auto;
+        color: #908003;
+        border-radius: 8px;
+        text-align: center;
+    }
+    .botonEnvio:hover{
+        color: #F1DB35;
+        background: #908003;
+    }
+    .botonEnvio i{
+        margin: 0 10px;
+    }
+    .cont-editor1{
+        width: 100%;
+    }
+    .cont-editor1 form{
+        width: 100% !important;
+        background: none !important;
+    }
+    .cont-editor1 form .cont-editorTitulo{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .cont-editor1 form .cont-editorTitulo .seccion1{
+        width: 80%;
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .cont-editor1 form .cont-editorTitulo .seccion1 input{
+        width: 100%;
+        padding: 15px;
+    }
+    .cont-editor1 form .cont-editorTitulo .seccion2{
+        width: 20%;
+        flex-grow: 1;
+    }
+    .cont-editor1 form .cont-editorTitulo .seccion2 .boton-enviar{
+        width: 85%;
+        padding: 10px;
+        background: #43BF4F;
+        border: 1px solid #2CAD38;
+        color: #D2FED6;
+        border-radius: 8px;
+        margin: 5px auto;
+    }
+    .cont-editor1 form .cont-editorTitulo .seccion2 .boton-cancelar{
+        width: 85%;
+        padding: 10px;
+        background: #CE3128;
+        border: 1px solid #B6241B;
+        color: #FFE3E1;
+        border-radius: 8px;
+        margin: 5px auto;
+    }
+    .cajaParrafo p{
+        padding: 10px;
+    }
+    .cajaParrafo p:hover{
+        border: 3px dashed #55E142;
+    }
+
+    .cont-subtitulo h2{
+        padding: 10px;
+        margin-top: 15px;
+    }
+
+    .cont-subtitulo h2:hover{
+        border: 3px dashed #55E142;
+    }
+
+
+    .cont-editarImagen{
+        width: 100%;
+        
+    }
+    .cont-editarImagen form{
+        width: 100% !important;
+        display: flex;
+        flex-wrap: wrap;
+        background: none !important;
+    }
+    .cont-editarImagen form .seccionImagen{
+        width: 80%;
+    }
+    .cont-editarImagen form .seccionInput{
+        width: 20%;
+    }          
+    .cont-editarImagen form .seccionInput .boton-enviar{
+        width: 85%;
+        padding: 10px;
+        background: #43BF4F;
+        border: 1px solid #2CAD38;
+        color: #D2FED6;
+        border-radius: 8px;
+        margin: 5px auto;
+    }
+    .cont-editarImagen form .seccionInput .boton-cancelar{
+        width: 85%;
+        padding: 10px;
+        background: #CE3128;
+        border: 1px solid #B6241B;
+        color: #FFE3E1;
+        border-radius: 8px;
+        margin: 5px auto;
+    }  
+
+    .cont-img img:hover{
+        border: 3px dashed #55E142;
+    }
+
+    @media (max-width: 450px){
+        .cont-principal .centrador{
+            width: 90%;
+            margin: 0 auto;
+        }
+        .cont-principal .centrador form{
+            width: 100%;
+        }
+    }
+</style>
+<div class="cont-principal">
+    <div class="centrador">
+        <div class="seccion-post" id="contenedorPag">
+
+        </div>
+        <div class="seccion-extra" id="seccion-extra">
+            
+        </div>
+        <div class="cont-error" id="cont-error">
+
+        </div>
+        <div class="cont-agregar">
+            <form action="/crearSubPosts" method="POST" enctype="multipart/form-data" id="mySubPostForm">
+                <input type="hidden" name="idPost" id="idPost" />
+                <input type="hidden" name="nombreImg" id="nombreImg" />
+                <div class="cont-imagen" id="cont-imagen" onmouseover="MagicPlanet.MisScripts.hoverIn()" onmouseout="MagicPlanet.MisScripts.hoverOut()">
+                    <div class="cont-icono" id="cont-icono">
+                        <i class="fa fa-image"></i> <span>Agregar Imagen</span>
+                    </div>
+                    <input type="file" name="imagenSubParrafo" id="imagenSubParrafo" onchange="MagicPlanet.MisScripts.handleChange()" />
+                </div>
+                <div id="imagePreview" class="image-preview esconder">
+                    <img src="" alt="Image" class="image-preview__img" />
+                </div>
+                <div class="cont-cambiarImg">
+                    <div class="cambiarImagen esconder" id="cambiarImagen" onclick="MagicPlanet.MisScripts.cambiarImagen()"><i class="fa fa-times-circle"></i>Cambiar Imagen</div>
+                </div>
+                <div class="cont-area">
+                    <div class="cont-seccion">
+                        <h2>Subtitulo</h2>
+                        <input src="text" name="subtitulo" id="subtitulo" />
+                    </div>
+                    <h2>Agregar Parrafo</h2>
+                    <div class="cont-parrafo">
+                        <textarea type="text" name="parrafo1" id="parrafo1"></textarea>
+                        <input type="hidden" name="descripcion" id="descripcion" />
+                    </div>
+                    <div class="cont-parrafos" id="cont-parrafos">
+
+                    </div>
+                    <div class="cont-botones">
+                        <div class="botonAgregar" onclick="MagicPlanet.MisScripts.agregarParrafo();"><i class="fa fa-plus"></i>  Nuevo Parrafo</div>
+                        <div class="botonRemover" onclick="MagicPlanet.MisScripts.removerParrafo();"><i class="fa fa-minus"></i>  Quitar Parrafo</div>
+                    </div>
+                </div>
+                
+                <div class="botonEnvio" onclick="MagicPlanet.MisScripts.enviarSubPost()"><i class="fa fa-plus-circle"></i> Agregar</div>
+            </form>
+            
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        MagicPlanet.MisScripts.ObtenerPosts();
+        
+        function windowGuid() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                var r = Math.random() * 16 | 0, v = c === 'x' ? r : r & 0x3 | 0x8;
+                return v.toString(16);
+            });
+        }
+
+        var img2 = windowGuid();
+        var imagen = img2+'.png';
+        $('#nombreImg').val(imagen);
+
+        const inpFile = document.getElementById("imagenSubParrafo");
+        const previewContainer = document.getElementById("imagePreview");
+        const previewImage = previewContainer.querySelector(".image-preview__img");
+
+        
+
+        console.log("inpFile: "+inpFile)
+        console.log("previewContainer: "+previewContainer)
+        console.log("previewImage: "+previewImage)
+        
+        inpFile.addEventListener("change", function(){
+            const file = this.files[0];
+            console.log(file);
+            if(file){
+                const reader = new FileReader();
+                previewImage.style.display = "block";
+                reader.addEventListener("load", function(){
+                    console.log(this);
+                    previewImage.setAttribute("src", this.result);
+                });
+                reader.readAsDataURL(file);
+            }else{
+                previewImage.style.display = null;
+            }
+        });
+
+        
+        
+    } );
+    
+</script>

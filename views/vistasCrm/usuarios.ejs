@@ -1,0 +1,32 @@
+<%- layout('layouts/main') %>
+
+<div class="cont-principal">
+    <div class="crear">
+        <div class="centrador">
+            <h2><a href="/crearUsuario"><i class="fa fa-plus-circle"></i> Crear Usuario</a></h2>
+        </div>
+    </div>
+    <div class="contenido">
+        <div class="centrador">
+            <table id="example" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <!-- <th>IdTipoUsuario</th> -->
+                        <th>Tipo Usuario</th>
+                    </tr>
+                </thead>
+                <tbody id="contenedorDatos">
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        MagicPlanet.MisScripts.ObtenerUsuarios();
+        
+    } );
+</script>

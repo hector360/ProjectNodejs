@@ -1,0 +1,175 @@
+<%- layout('layouts/main') %>
+<style>
+    .contCartelera{
+        width: 100%;      
+    }
+    .contCartelera .centrador{
+         width: 60%; 
+    }
+    .contCartelera .centrador .contShows{
+        width: 100%;        
+    }
+    .contCartelera .centrador .contShows .show{
+        /* border-radius: 10px;
+        border: 1px solid #333333;
+        padding: 10px;
+        box-sizing: border-box;
+        margin: 10px 0; */
+    }
+    .contCartelera .centrador .contShows .show:hover{
+        background: #D0BFED;
+    }
+
+    .contCartelera .centrador .contShows .show .contFecha{
+        border-radius: 10px;
+        border: 1px solid #333333;
+        padding: 10px;
+        box-sizing: border-box;
+        margin: 10px 0;
+    }
+    .contCartelera .centrador .contShows .show .contFecha h2{
+        width: 100%
+    }
+    .contCartelera .centrador .contShows .show .contCatalogo{
+        width: 100%
+    }   
+    .cartelera-title {
+        border: 1px solid #bbbeb8;
+        border-radius: 3px;
+        padding: 5px;
+        width: 80%;
+        color : blue;
+        margin-bottom: 10px;       
+        cursor: pointer;   
+    }
+    .cartelera-card{          
+        width: 80%;           
+        display: flex;
+        flex-wrap: wrap;               
+    }
+    .cartelera-box {
+        margin-right: 20px;
+    }
+    .cartelera-card div img {      
+        width: 100%;
+        height: 100%;
+    }
+    .cartelera-box {        
+        position: relative;
+        display: inline;        ;
+        width: 150px;  
+        height: 200px;
+    }
+    .cartelera-card div img:hover {
+        cursor: pointer;    
+    }
+    .cartelera-text {
+        position: absolute;        
+        font-size: 14px;
+        right: 0;     
+        bottom: 0;
+        color: white;     
+        padding: 5px;   
+        text-shadow: 0.1em 0.1em #333      
+     }
+    .caretelera-opacity:hover{  
+        transition-duration: 4s;      
+        opacity: 1;
+    }
+    .caretelera-opacity{
+        position: absolute;       
+        opacity: 0;
+        background: rgba(0,0,0, 0.5);
+        width: 100%;
+        height: 100%;
+        top: 0;
+    }
+    .inline-title {
+        display: inline;
+        font-weight: normal;
+    }
+    .cartelera-list {
+        margin-bottom: 10px;
+    }
+</style>
+<div class="contCartelera">
+    <div class="centrador">
+        <div class="crear">
+            <div class="centrador">
+                <h2><a href="/crear-cartelera"><i class="fa fa-plus-circle"></i> Crear Cartelera</a></h2>
+            </div>
+        </div>
+        <div class="contShows" id="contShow">                                              
+            <div id="contenido"></div>
+        </div>
+    </div>
+    <div id="contShow">
+
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        // MagicPlanet.MisScripts.GetMaestros();
+        MagicPlanet.MisScripts.traerFechaCartelera();
+        
+        
+        // const contenido = `
+        //     <diV class ="cartelera-list">
+        //         <div class ="cartelera-title" id="list-one">
+        //             <h3 class="inline-title">28 </h3> 
+        //             <h6 class="inline-title"> de enero</h6>              
+        //         </div>
+        //         <div class="cartelera-card" id="list-content-one">
+        //             <div class="cartelera-box">
+        //                 <img src="/uploads/img1.jpg" alt="" >
+        //                 <div class="caretelera-opacity">
+        //                     <div class="cartelera-text">
+        //                          show para este lunes 15 de marzo
+        //                     </div>                                       
+        //                 </div>                                       
+        //             </div>                                          
+        //             <div class="cartelera-box">
+        //                 <img src="/uploads/img1.jpg" alt="" >
+        //                 <div class="caretelera-opacity">
+        //                     <div class="cartelera-text">
+        //                         SHOW  A LAS <br> 15:00 pm - 16:00 pm
+        //                     </div>                                       
+        //                 </div>                                       
+        //             </div> 
+        //         </div>         
+        //     </div>              
+
+        //     <diV class ="cartelera-list">
+        //         <div class ="cartelera-title" id="list-one">
+        //             <h3 class="inline-title">28 </h3> 
+        //             <h6 class="inline-title"> de enero</h6>              
+        //         </div>
+        //         <div class="cartelera-card" id="list-content-one">
+        //             <div class="cartelera-box">
+        //                 <img src="/uploads/img1.jpg" alt="" >
+        //                 <div class="caretelera-opacity">
+        //                     <div class="cartelera-text">
+        //                          show para este lunes 15 de marzo
+        //                     </div>                                       
+        //                 </div>                                       
+        //             </div>                                          
+        //             <div class="cartelera-box">
+        //                 <img src="/uploads/img1.jpg" alt="" >
+        //                 <div class="caretelera-opacity">
+        //                     <div class="cartelera-text">
+        //                         SHOW  A LAS <br> 15:00 pm - 16:00 pm
+        //                     </div>                                       
+        //                 </div>                                       
+        //             </div> 
+        //         </div>         
+        //     </div>  
+        // `
+        // $("#contenido").html(contenido)
+
+        // $("#list-one").click(function(){
+        //     $("#list-content-one").toggle(500);
+        // });
+    } );
+    
+</script>

@@ -1,0 +1,98 @@
+<%- layout('layouts/main') %>
+<style>
+    .contIcon a{ 
+        font-size: 24px;
+        padding: 0 2vw;
+        background: #77C33D;
+        color: #fff;
+        border-radius: 10px;
+    }
+    .contIcon a:hover{ 
+        background: #62A52E;
+    }
+    @media (max-width: 450px){
+        .cont-principal .centrador{
+            width: 90%;
+            margin: 0 auto;
+        }
+        .cont-principal .centrador form{
+            width: 100%;
+        }
+    }
+</style>
+<div class="cont-principal">
+    <div class="centrador">
+        
+        <form id="cursoForm" action="/crearCurso" method="POST" enctype="multipart/form-data" >
+            <div class="contIcon">
+                <a href="/cursos-talleres"><i class="fa fa-long-arrow-left"></i></a>
+            </div>
+            <input type="hidden" name="nombreImg" id="nombreImg" />
+            <div class="cont-seccion">
+                <h2>Nombre del Curso</h2>
+                <input type="text" name="nombreCurso" id="nombreCurso" />
+            </div>
+            <div class="cont-seccion">
+                <h2>Horario de la clase</h2>
+                <input type="time" id="horarioClaseEntrada" name="horarioClaseEntrada" min="09:00" max="18:00" required>
+                <input type="time" id="horarioClaseSalida" name="horarioClaseSalida" min="09:00" max="18:00" required>
+            </div>
+            <div class="cont-seccion">
+                <h2>Duracion del Curso</h2>
+                <input type="number" name="duracionCurso" id="duracionCurso" />
+                <select name="unidadTiempo" id="unidadTiempo">
+                    <option value="dias">Días</option>
+                    <option value="semanas">Semanas</option>
+                    <option value="meses">Meses</option>
+                    <option value="semestres">Semestres</option>
+                    <option value="años">Años</option>
+                  </select>
+            </div>
+            <div class="cont-seccion">
+                <h2>Periodo del Taller</h2>
+                <input type="date" id="fechaInicial" name="fechaInicial"
+                value="2018-07-22"
+                min="2018-01-01" max="2018-12-31">
+                <input type="date" id="fechaTerminacion" name="fechaTerminacion"
+                value="2018-07-22"
+                min="2018-01-01" max="2018-12-31">
+            </div>
+            <div class="cont-seccion">
+                <h2>Maestro</h2>
+                <div id="contenedorMaestro">
+
+                </div>
+            </div>
+            <div class="cont-seccion">
+                <h2>Descripción del Curso</h2>
+                <input type="text" name="descripcionCurso" id="descripcionCurso" />
+            </div>
+            <div class="cont-seccion">
+                <h2>Imagen del Curso</h2>
+                <input type="file" name="myImage" id="myImage" />
+            </div>
+            <div class="cont-seccion">
+                <!-- onclick="MagicPlanet.MisScripts.crearCurso()" -->
+                <div class="botonEnvio" onclick="MagicPlanet.MisScripts.enviarCurso()">Enviar</div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        MagicPlanet.MisScripts.GetMaestros();
+        function windowGuid() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                var r = Math.random() * 16 | 0, v = c === 'x' ? r : r & 0x3 | 0x8;
+                return v.toString(16);
+            });
+        }
+
+        var img2 = windowGuid();
+        var imagen = img2+'.png';
+        $('#nombreImg').val(imagen);
+        
+    } );
+    
+</script>

@@ -1,0 +1,103 @@
+<%- layout('layouts/main') %>
+<style>
+    .contServicios{
+        width: 100%;
+    }
+    .contServicios .centrador{
+        width: 80%;
+        /* background: #ccc; */
+        margin: 0 auto;
+    }
+    .contServicios .centrador .crear{
+        
+    }
+    .contServicios .centrador .crear .centrador{
+        
+    }
+    .contServicios .centrador .crear .centrador h2{
+        
+    }
+    .contServicios .centrador .contServicios{
+        width: 100%;
+    }
+    .contServicios .centrador .contServicios table{
+        width: 100%;
+    }
+    .contServicios .centrador .contServicios table tr{
+        width: 100%;
+    }
+    .contServicios .centrador .contServicios table tr th{
+        padding: 1vw;
+    }
+    .contServicios .centrador .contServicios table tr td{
+        padding: 1vw;
+    }
+    .contServicios .centrador .contServicios table tr td a{
+        padding: .5vw;
+        margin: 0 .5vw;
+    }
+    .contServicios .centrador .contServicios table tr .contBotones{
+        padding: 1vw 0;
+        display: flex;
+    }
+    .contServicios .centrador .contServicios table tr td .botonEditar{
+        width: 40%;
+        padding: .5vw;
+        margin: 0 .5vw;
+        background: #EDB450;
+        color: #fff;
+        text-align: center;
+    }
+    .contServicios .centrador .contServicios table tr td .botonEditar:hover{
+        background: #D19C3E;
+    }
+    .contServicios .centrador .contServicios table tr td .botonEliminar{
+        width: 40%;
+        padding: .5vw;
+        margin: 0 .5vw;
+        background: #D76A5F;
+        color: #fff;
+        text-align: center;
+    }
+    .contServicios .centrador .contServicios table tr td .botonEliminar:hover{
+        background: #BE5449;
+    }
+    
+   
+    
+</style>
+<div class="contServicios">
+    <div class="centrador">
+        <div class="crear">
+            <div class="centrador">
+                <h2><a href="/crearServicios"><i class="fa fa-plus-circle"></i> Crear Tags</a></h2>
+            </div>
+        </div>
+        <div class="contServicios" >
+
+            <table style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Nombre Servicio:</th>
+                        <th>Descripción:</th>
+                        <th>Duración Servicio:</th>
+                        <th>Precio:</th>
+                        <th></th>
+                      </tr>
+                </thead>
+                <tbody class="contenido" id="contenido">
+                    
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        // MagicPlanet.MisLandingScripts.getTipsLanding();
+        // MagicPlanet.MisLandingScripts.getTabulador();
+        // MagicPlanet.NuevoLandingScript.traerSliderPrincipal();
+        // var slideIndex = 1;
+        MagicPlanet.MisScripts.traerServicios();
+    } );
+</script>

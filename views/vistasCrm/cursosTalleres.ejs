@@ -1,0 +1,46 @@
+<%- layout('layouts/main') %>
+<style>
+    @media (max-width: 450px){
+        .contBanner{
+            width: 45%;
+            margin: 1vw;
+        }
+        .contBanner .seccion2 h2{
+            font-size: 18px !important;
+        }
+        .contBanner .seccion2 .centrado a{
+            width: 95% !important;
+            margin: 5px !important;
+            font-size: 15px !important;
+        }
+        .contBanner .seccion2 .centrado .botonEliminarP{
+            width: 95% !important;
+            margin: 5px !important;
+            font-size: 15px !important;
+        }
+       
+    }
+</style>
+<div class="cont-principal">
+    <div class="crear">
+        <div class="centrador">
+            <h2><a href="/crear-curso"><i class="fa fa-plus-circle"></i> Crear Curso</a></h2>
+        </div>
+    </div>
+    <div class="contenido">
+        <div class="centrador">
+            <div class="cont-Cursos" id="cont-Cursos">
+                
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        MagicPlanet.MisScripts.getCursos();
+        
+    } );
+    
+</script>

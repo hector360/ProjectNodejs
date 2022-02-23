@@ -1,0 +1,80 @@
+<%- layout('layouts/layoutSistemaO') %>
+<style>
+    .error {
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+        text-align: center;
+        font-size: 24px;
+        padding: 10px;
+        box-sizing: border-box;
+
+    }
+    .cont-canjear{
+        display: flex;
+    }
+    .cont-plus{
+        /* width: 30px;
+        height: 30px; */
+        border-radius: 50px;
+        background: #33AAFF;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 20px;
+        color: #fff;
+        margin: 0 20px;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    .precioCancelado{
+        text-decoration: line-through;
+    }
+</style>
+<div class="container-fluid">
+    <input type="hidden" name="tipoCarrito" id="tipoCarrito" value="carro-recepcion" />
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <a href="/punto-venta" class="btn btn-warning btn-regresar"><i class="fa fa-arrow-left"></i> Regresar</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 card earning-card">
+            
+            <div class="row">
+                <div class="cont-principalP" id="cont-popup">
+            
+                </div>
+                <div class="col-md-12" >
+                    <div class="row productos-row" id="cont-productos">
+
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="col-md-12"><h2>Resumen de compra</h2></div>
+            <div class="cont-carro" id="cont-carro">
+                    
+            </div>
+            <div class="boton-pagar"></div>
+        </div>
+    </div> 
+</div>
+
+<script>
+    $(document).ready(function() {
+        const current_url = new URL(window.location.href);
+        const search_params = current_url.searchParams;
+        const id = search_params.get('id');
+        $('#cont-boton-regresar').html(`<a href="/seleccionar-compra?id=${id}"><i class="fa fa-arrow-left"></i> Regresar</a>`)
+        MagicPlanet.MiSistema.traerProductosCarro2(id);
+        MagicPlanet.MiSistema.traerCarrito(id);
+        localStorage.setItem("tarjetas", [])
+        localStorage.setItem("carrito", [])
+        localStorage.setItem("horas_tarjeta", 0)
+    } );
+    
+</script>

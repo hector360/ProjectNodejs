@@ -1,0 +1,43 @@
+<%- layout('layouts/layoutSistemaO') %>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4" id="cont-boton-regresar"></div>
+    </div>
+    <div class="row mt-5 pt-3">
+        <div class="col-md-6 text-center" id="cont-ticket"></div>
+        <div class="col-md-6 text-center" id="cont-vincular"></div>
+    </div>
+</div>
+
+
+
+<script>
+    $(document).ready(function() {
+        const current_url = new URL(window.location.href);
+        const search_params = current_url.searchParams;
+        const id_ticket = search_params.get('id_ticket');
+        const user_id = search_params.get('user_id');
+
+        $('#cont-boton-regresar').html(`<a href="/compra-carrito2?id=${user_id}" class="btn btn-warning btn-regresar"><i class="fa fa-arrow-left"></i> Pantalla Principal</a>`)
+        
+
+        var htmlVinculacion = '';
+        var htmlTicket = '';
+
+        htmlTicket +=
+            `<a href="/imprimir-ticket?id=${id_ticket}" class="btn btn-primary btn-sistema">
+                Imprimir Ticket
+            </a>`;
+        htmlVinculacion +=
+            `<a href="/vincular-brazalete?id=${user_id}" class="btn btn-primary btn-sistema">
+                Vincular Brazalete
+            </a>`;
+
+        $('#cont-vincular').html(htmlVinculacion);
+        $('#cont-ticket').html(htmlTicket);
+        
+        
+    } );
+    
+</script>

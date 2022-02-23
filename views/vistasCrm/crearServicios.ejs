@@ -1,0 +1,105 @@
+<%- layout('layouts/main') %>
+<style>
+    .contCrearServicios{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .contCrearServicios .centrador{
+        width: 50%;
+        padding-top: 2vw;
+    }
+    .contCrearServicios .centrador .contIcon{
+        margin: 2vw 0;
+    }
+    .contCrearServicios .centrador .contIcon a{ 
+        font-size: 24px;
+        padding: 0 2vw;
+        background: #77C33D;
+        color: #fff;
+        border-radius: 10px;
+    }
+    .contCrearServicios .centrador .contIcon a:hover{ 
+        background: #62A52E;
+    }
+    .contCrearServicios .centrador form{
+        width: 100%;
+        height: 100%;
+    }
+    .contCrearServicios .centrador form .contInput{
+        width: 100%;
+        margin: 1vw 0;
+        display: flex;
+    }
+    .contCrearServicios .centrador form .contInput input{
+        width: 100%;
+        padding: 1vw;
+        box-sizing: border-box;
+    }
+    .contCrearServicios .centrador form .contInput button{
+        /* width: 100%; */
+        padding: 1vw 3vw;
+        background: cornflowerblue;
+        border: none;
+        color: #fff;
+    }
+    .contCrearServicios .centrador form .contInput .tiempo{
+        width: 45%;
+        padding: 1vw;
+        box-sizing: border-box;
+    }
+    .contCrearServicios .centrador form .contInput select{
+        width: 45%;
+        padding: 1vw;
+        box-sizing: border-box;
+    }
+</style>
+<div class="contCrearServicios">
+    <div class="centrador">
+        <div class="contIcon">
+            <a href="/servicios"><i class="fa fa-long-arrow-left"></i></a>
+        </div>
+        <form action="/createServicios" method="POST"> 
+            <h2>Nombre:</h2>
+            <div class="contInput">
+                <input type="text" name="nombreServicio" id="nombreServicio" />
+            </div>
+            <h2>Precio:</h2>
+            <div class="contInput">
+                <input class="tiempo" type="number" name="precioServicio" id="precioServicio" />
+            </div>
+            <h2>Tiempo Servicio:</h2>
+            <div class="contInput seccionTiempo">
+                <input type="number" name="tiempo" id="tiempo" />
+                <select name="medidaTiempo">
+                    <option value="segundos">Segundos</option>
+                    <option value="minutos" selected>Minutos</option>
+                    <option value="horas">Horas</option>
+                    <option value="dias">Días</option>
+                  </select>
+            </div>
+            <h2>Tipo de Servicio:</h2>
+            <div class="contInput" id="contTipoServicio">
+                <!-- <input type="text" name="descripcionServicio" id="descripcionServicio" /> -->
+            </div>
+            <h2>Descripcion:</h2>
+            <div class="contInput">
+                <input type="text" name="descripcionServicio" id="descripcionServicio" />
+            </div>
+            <div class="contInput">
+                <button>Enviar</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        // MagicPlanet.MisLandingScripts.getTipsLanding();
+        // MagicPlanet.MisLandingScripts.getTabulador();
+        // MagicPlanet.NuevoLandingScript.traerSliderPrincipal();
+        // var slideIndex = 1;
+        MagicPlanet.MisScripts.traerSelectTipoServicio();
+    } );
+</script>

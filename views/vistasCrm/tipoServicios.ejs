@@ -1,0 +1,93 @@
+<%- layout('layouts/main') %>
+
+<style>
+      .contTipoServicios{
+        width: 100%;
+    }
+    .contTipoServicios .centrador{
+        width: 80%;
+        /* background: #ccc; */
+        margin: 0 auto;
+    }
+   
+    .contTipoServicios .centrador .contTipoServicios{
+        width: 100%;
+    }
+    .contTipoServicios .centrador .contTipoServicios table{
+        width: 100%;
+    }
+    .contTipoServicios .centrador .contTipoServicios table tr{
+        width: 100%;
+    }
+    .contTipoServicios .centrador .contTipoServicios table tr th{
+        padding: 1vw;
+    }
+    .contTipoServicios .centrador .contTipoServicios table tr td{
+        padding: 1vw;
+    }
+    .contTipoServicios .centrador .contTipoServicios table tr td a{
+        padding: .5vw;
+        margin: 0 .5vw;
+    }
+    .contTipoServicios .centrador .contTipoServicios table tr .contBotones{
+        padding: 1vw 0;
+        display: flex;
+    }
+    .contTipoServicios .centrador .contTipoServicios table tr td .botonEditar{
+        width: 40%;
+        padding: .5vw;
+        margin: 0 .5vw;
+        background: #EDB450;
+        color: #fff;
+        text-align: center;
+    }
+    .contTipoServicios .centrador .contTipoServicios table tr td .botonEditar:hover{
+        background: #D19C3E;
+    }
+    .contTipoServicios .centrador .contTipoServicios table tr td .botonEliminar{
+        width: 40%;
+        padding: .5vw;
+        margin: 0 .5vw;
+        background: #D76A5F;
+        color: #fff;
+        text-align: center;
+    }
+    .contTipoServicios .centrador .contTipoServicios table tr td .botonEliminar:hover{
+        background: #BE5449;
+    }
+    
+</style>
+<div class="contTipoServicios">
+    <div class="centrador">
+        <div class="crear">
+            <div class="centrador">
+                <h2><a href="/crearTipoServicios"><i class="fa fa-plus-circle"></i> Crear Tipos Servicios</a></h2>
+            </div>
+        </div>
+        <div class="contTipoServicios" >
+
+            <table style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Nombre Tipo Servicio:</th>
+                        <th>Descripción:</th>
+                        <!-- <th></th> -->
+                      </tr>
+                </thead>
+                <tbody class="contenido" id="contenidoTipoServicio">
+                    
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        // MagicPlanet.MisLandingScripts.getTipsLanding();
+        // MagicPlanet.MisLandingScripts.getTabulador();
+        // MagicPlanet.NuevoLandingScript.traerSliderPrincipal();
+        // var slideIndex = 1;
+        // MagicPlanet.MisScripts.traerServicios();
+        MagicPlanet.MisScripts.traerTipoServicios();
+    } );
+</script>

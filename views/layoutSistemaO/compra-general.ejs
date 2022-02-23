@@ -1,0 +1,48 @@
+<%- layout('layouts/layoutSistemaO') %>
+
+<div class="container-fluid">
+    <input type="hidden" name="tipoCarrito" id="tipoCarrito" value="carro-recepcion" />
+    <div class="row">
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="/punto-venta" class="btn btn-warning btn-regresar"><i class="fa fa-arrow-left"></i> Regresar</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cont-principalP" id="cont-popup">
+            
+                </div>
+                <div class="col-md-12" >
+                    <div class="row productos-row" id="cont-productos">
+
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="col-md-12"><h2>Resumen de compra</h2></div>
+            <div class="cont-carro" id="cont-carro">
+                    
+            </div>
+            <div class="boton-pagar"></div>
+        </div>
+    </div> 
+</div>
+
+
+<script>
+    $(document).ready(async function() {
+        const id = await MagicPlanet.MiSistema.traerusuarioTemporal();
+        console.log(id);
+        if(id!=null){
+            console.log(id);
+            MagicPlanet.MiSistema.traerProductosCarro2(id);
+            MagicPlanet.MiSistema.traerCarrito(id);
+        }
+        
+        
+    } );
+    
+</script>

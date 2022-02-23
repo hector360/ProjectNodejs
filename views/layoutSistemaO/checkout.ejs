@@ -1,0 +1,23 @@
+<%- layout('layouts/layoutSistemaO') %>
+
+<div><input type="text" name="codigo_brazalete"  id="codigo_brazalete" /></div>
+
+<div class="form-group col-md-12 mt-4">
+    <a href="/camera?ruta=checkout" class="btn btn-primary btn-lg btn-control">Escanear Codigo QR</a>
+</div>
+<div class="botonVincular" id="botonVincular" onclick="MagicPlanet.MisScripts.traerUsuarioFromMembresia()">Acceso</div>
+<script>
+    
+    $(document).ready(function() {
+        const current_url = new URL(window.location.href);
+        const search_params = current_url.searchParams;
+        const brazalete = search_params.get('brazalete');
+
+        $('#codigo_brazalete').val(brazalete);
+        console.log(brazalete);
+
+        // MagicPlanet.MiSistema.traerTarjetasHoras(id);
+        // MagicPlanet.MiSistema.traerNinos(id);
+        
+    } );
+</script>

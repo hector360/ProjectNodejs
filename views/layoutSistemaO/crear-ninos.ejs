@@ -1,0 +1,105 @@
+<%- layout('layouts/layoutSistemaO') %>
+
+<style>
+    .cont-principal{
+        width: 100%;
+    }
+    .cont-principal .centrador{
+        width: 70%;
+        margin: 0 auto;
+    }
+    .cont-principal .centrador .caja_agregar{
+        width: 100%;
+    }
+    .cont-principal .centrador .caja_agregar h2{ 
+        width: 100%;
+    }
+    .cont-principal .centrador .caja_agregar input{ 
+        width: 100%;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+    .cont-principal .centrador .caja_agregar button {
+        border: none;
+        padding: 15px;
+        background: cornflowerblue;
+        color: #fff;
+        border-radius: 10px;
+        margin: 10px 0;
+    }
+    .cont-boton-regresar{
+            width: 100%;
+            padding: 15px 0;
+            margin: 10px 0;
+        }
+        .cont-boton-regresar a{
+            padding: 15px;
+            color: #0c5460;
+            background-color: #d1ecf1;
+            border-color: #bee5eb;
+            font-size: 24px;
+            font-family: sans-serif;
+            box-sizing: border-box;
+            border-radius: 12px;
+        }
+        .cont-error{
+            width: 100%;
+        }
+        .cont-error .error{
+            width: 100%;
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+</style>
+
+<div class="cont-principal">
+    <div class="centrador">
+        <div class="cont-boton-regresar" id="cont-boton-regresar">
+    
+        </div>
+        <div class="cont-error" id="cont-error">
+
+        </div>
+        <div class="caja_agregar">
+            <h2>Agrega el nombre del niño</h2>
+            <input type="text" name="nombre_nino" id="nombre_nino" placeholder="Nombre" />
+            <button id="boton_agregar"><i class="fa fa-plus-circle"></i> Agregar</button>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function() {
+        const current_url = new URL(window.location.href);
+        const search_params = current_url.searchParams;
+        const id = search_params.get('id');
+        const boton_agregar = document.getElementById("boton_agregar");
+        var nombre_nino = document.getElementById("nombre_nino");
+
+        $('#cont-boton-regresar').html(`<a href="/asignar-horas?id=${id}"><i class="fa fa-arrow-left"></i> Regresar</a>`)
+        boton_agregar.addEventListener("click", (event)=>{
+            console.log(nombre_nino.value)
+            if(nombre_nino.value == ""){
+                $('#cont-error').html(`<div class="error">Inserta el nombre del niño</div>`);
+            }else{
+                MagicPlanet.MiSistema.crearNino(id);
+            }
+        });
+        // MagicPlanet.MiSistema.traerTarjetasHoras(id);
+        // MagicPlanet.MiSistema.traerNinos(id);
+        
+    } );
+    
+</script>

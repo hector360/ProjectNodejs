@@ -1,0 +1,125 @@
+.modalContainer{
+    background-color:rgba(0, 0, 0, 0.3);
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    z-index:10000;
+    /* required by MSIE to prevent actions on lower z-index elements */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.alertBox{
+    min-width: 350px;
+    width: 25vw;
+    min-height: 25vw;
+    border:1px solid #666;
+    background:#fff;
+    border-radius: 8px;
+}
+.alertBox .titulo{
+    background: #393836;
+    color: #fff;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+}
+.alertBox .body{
+    width: 100%;
+    margin: 20px 0;
+}
+.alertBox .body .texto{
+    width: 70%;
+    margin: 0 auto;
+    font-size: 20px;
+    font-weight: 100;
+}
+
+.alertBox .cont-texto{
+    width: 100%;
+}
+.alertBox .cont-texto .centrador{
+    width: 18vw;
+    margin: 0 auto;
+}
+.alertBox .cont-texto .centrador .texto{
+    width: 100%;
+    color: #A7251E;
+}
+
+.alertBox .cont-imagen{
+    width: 100%;
+}
+.alertBox .cont-imagen .centrador{
+    min-width: 195px;
+    min-height: 122px;
+    width: 8vw;
+    height: 8vw;
+    margin: 0 auto;
+}
+.alertBox .cont-imagen .centrador img{
+    width: 100%;
+}
+.alertBox .cont-boton{
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.alertBox .cont-boton .centrador{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+.alertBox .cont-boton .centrador .botonAceptar{
+    display: inline-block;
+    background: #CB322B;
+    border: 1px solid #C1413A;
+    color: #FFECEC;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin: 0 10px;
+}
+.alertBox .cont-boton .centrador .botonAceptar:hover{
+    display: inline-block;
+    background: #A7251E;
+    border: 1px solid #CB322B;
+    color: #FFECEC;
+}
+.alertBox .cont-boton .centrador .botonCancelar{
+    display: inline-block;
+    background: #EACA1A;
+    border: 1px solid #CEB111;
+    color: #FAF2C5;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin: 0 10px;
+}
+.alertBox .cont-boton .centrador .botonCancelar:hover{
+    background:#CEB111;
+    border: 1px solid #EACA1A;
+    color:#FAF2C5;
+}
+.modalContainer > .alertBox {
+    position:fixed;
+}
+.esconderScroll{
+    overflow: hidden; 
+}
+
+@media (max-width: 450px){
+    .alertBox{
+        width: 90%;
+    }
+    .alertBox .cont-boton .centrador {
+        width: 78%;
+        margin: 10px auto;
+    }
+}

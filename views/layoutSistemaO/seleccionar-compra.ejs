@@ -1,0 +1,79 @@
+<%- layout('layouts/layoutSistemaO') %>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <a href="/usuario-existente" class="btn btn-warning btn-regresar"><i class="fa fa-arrow-left"></i> Regresar</a>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-4 text-center">
+            <div id="cont-carrito"></div>
+        </div>
+        <div class="col-md-4 text-center">
+            <div id="cont-vincular"></div>
+        </div>
+        <div class="col-md-4 text-center">
+            <div id="cont-asignar"></div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-4 text-center">
+            <div id="cont-reclamoTarjeta"></div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card earning-card">
+                <div class="card-body p-3">
+                    <h2>Niños registrados</h2>
+                    <div class="col-md-12">
+                        <div class="row" id="info-nino"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $(document).ready(function() {
+        const current_url = new URL(window.location.href);
+        const search_params = current_url.searchParams;
+        const id = search_params.get('id');
+        var htmlVinculacion = '';
+        var htmlCarrito = '';
+        var htmlAsignacion = '';
+        var htmlReclamoTarjeta = '';
+
+        htmlCarrito +=
+            `<a href="/compra-carrito2?id=${id}" class="btn btn-primary btn-sistema">
+                Comprar Productos
+            </a>`;
+        htmlVinculacion +=
+            `<a href="/vincular-brazalete?id=${id}" class="btn btn-primary btn-sistema">
+                Vincular Brazalete
+            </a>`;
+        htmlAsignacion +=
+            `<a href="/asignar-horas?id=${id}" class="btn btn-primary btn-sistema">
+                Asignar Horas
+            </a>`;
+        htmlReclamoTarjeta +=
+            `<a href="/reclamar-tarjetas?id=${id}" class="btn btn-primary btn-sistema">
+                Reclamar Tarjeta de Regalo
+            </a>`;
+        
+        $('#cont-vincular').html(htmlVinculacion);
+        $('#cont-carrito').html(htmlCarrito);
+        $('#cont-asignar').html(htmlAsignacion);
+        $('#cont-reclamoTarjeta').html(htmlReclamoTarjeta);
+        
+
+        
+        MagicPlanet.MiSistema.traerMembresiasFromUserFormato(id);
+        
+    } );
+    
+</script>

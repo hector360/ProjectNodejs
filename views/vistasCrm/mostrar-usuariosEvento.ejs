@@ -1,0 +1,89 @@
+<%- layout('layouts/main') %>
+<style>
+    .tituloP{
+        padding: 5px;
+        font-size: 20px;
+    }
+    .cont-principal{
+        width: 100%;
+        height: 100%;
+        padding-top: 25px;
+    }
+    .centrador{
+        width: 95%;
+        margin: 0 auto;
+        background: #fff;
+        border-radius: 15px;
+    }
+    table{
+        width: 100%;
+    }
+    thead tr th{
+        padding: 10px;
+        font-size: 20px;
+        font-family: sans-serif;
+    }
+    tbody tr td{
+        padding: 10px;
+        font-size: 16px;
+        font-family: sans-serif;
+    }
+    .tablaUsers{
+        width: 100%;
+    }
+    .tablaUsers .cont-usuario{
+        width: 100%;
+    }
+    .tablaUsers .cont-usuario .usurio{
+        width: 100%;
+    }
+    .tablaUsers .cont-usuario .usurio h2{
+        width: 100%;
+        font-size: 18px;
+        padding: 5px;
+        font-weight: bold;
+    }
+    .cont-data{
+        width: 100%;
+    }
+    .datos{
+        display: flex;
+        border-bottom: 1px solid rgb(227, 227, 227, 0.8);
+    }
+    .datos .titulo{
+        width: 40%;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 5px;
+    }
+    .datos .dato{
+        width: 60%;
+        font-size: 16px;
+        padding: 5px;
+    }
+    .colorPar{
+        background: #f1f1f1;
+    }
+    .colorImPar{
+        background: #fafafa;
+    }
+
+</style>
+<div class="cont-principal">
+    <div class="centrador">
+        <h2 class="tituloP">Compras Evento Magic Planet</h2>
+        <div class="tablaUsers" id="contenido-tabla">
+            
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function() {
+        
+        MagicPlanet.MisScripts.traerUsuariosEvento();
+        
+    } );
+</script>
+

@@ -1,0 +1,316 @@
+<%- layout('layouts/main') %>
+<style>
+    .cont-principal{
+        width: 100%;
+        display: flex;
+
+    }
+    .secciones{
+        width: 50%;
+    }
+    .cont-principal .centrando{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .cont-principal .centrador{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .cont-principal .centrador .cont-tipoProductos{
+        width: 100%;
+        padding: 10px 0;
+        box-sizing: border-box;
+    }
+    .cont-principal .centrador .cont-tipoProductos select{
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+    .cont-principal .centrador .cont-producto{
+        width: 100%;
+        padding: 10px 0;
+        box-sizing: border-box;
+    }
+    .cont-principal .centrador .cont-producto select{
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+    .cont-principal .centrador .cont-imagenP{
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+    .cont-principal .centrador .cont-imagenP img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+    .cont-principal .centrador .cont-input{
+        width: 100%;
+    }
+    .cont-principal .centrador .cont-input input{
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+    .cont-horasExtra{
+        width: 100%;
+        padding: 10px 0;
+    }
+    .cont-horasExtra input{
+        width: 100%;
+        padding: 15px;
+    }
+    .cont-boton{
+        width: 100%;
+    }
+    .cont-boton button{
+        padding: 15px;
+        color: #fff;
+        background: cornflowerblue;
+        border: none;
+        box-sizing: border-box;
+        margin: 15px 0;
+    }
+    .cont-boton button:hover{
+        padding: 15px;
+        color: #fff;
+        background: #4FBFFF;
+    }
+    .cont-datos{
+        width: 100%;
+        border: 1px solid #000;
+        margin: 15px 0;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 4px;
+    }
+    .cont-datos .seccion{
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .cont-datos .seccion .dato{
+        margin: 0 15px;
+        font-size: 20px;
+    }
+    .seccion-existente{
+        width: 100%;
+    }
+    .seccion-existente .usuarioExistente{
+        width: 100%;
+        padding: 15px;
+    }
+
+    .seccion-carro{
+            width: 100%;
+        }
+        .seccion-carro .carro{
+            width: 100%;
+            margin: 10px 0;
+        }
+        .seccion-carro .carro .centrador{
+            width: 100%;
+            border: 1px solid #000;
+            border-radius: 6px;
+            display: flex;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .seccion-carro .carro .centrador .caja{
+            width: 100%;
+        }
+        .seccion-carro .carro .centrador .caja h2{
+            width: 100%;
+        }
+        .seccion-carro .carro .centrador .caja .cont-producto{
+            width: 100%;
+        }
+        .seccion-carro .carro .centrador .caja .cont-producto span{ 
+            width: 100%;
+        }
+        .error-vacio{
+            width: 100%;
+        }
+        .error-vacio .error{
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 0 !important;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .removerCompra{
+            width: 10%;
+        }
+        .removerCompra img{
+            width: 100%;
+        }
+        .cont-total{
+            width: 100%;
+        }
+        .cont-total .caja{
+            width: 100%;
+            display: flex;
+            border: 1px solid #000;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        .cont-total .caja h2{
+            width: 50%;
+        }
+        .cont-total .caja .dato{
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .cont-boton{
+            width: 100%;
+            margin: 10px 0;
+        }
+        .cont-boton .boton{
+            width: 60%;
+            margin: 0 auto;
+            padding: 15px;
+            border-radius: 8px;
+            border: none;
+            background: cornflowerblue;
+            color: #fff;
+            text-align: center;
+        }
+        .cont-seccionPago{
+            width: 100%;
+        }
+        .cont-seccionPago .pago-input{
+            width: 100%;
+            padding: 15px 0;
+        }
+        .cont-seccionPago .pago-input input{
+            width: 100%;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        .cont-seccionPago .pago-input button{
+            width: 100%;
+            padding: 15px;
+            box-sizing: border-box;
+            background:darkorange;
+            color: #fff;
+            border: none;
+        }
+        .cont-principal .cont-mensaje{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+        .cont-principal .cont-mensaje .mensaje{
+            width: 30%;
+            padding: 25px;
+            background: cornflowerblue;
+            color: #fff;
+            font-size: 30px;
+            text-align: center;
+        }
+</style>
+
+<div class="cont-principal" id="cont-principal">
+    <div class="secciones">
+        <div class="centrador">
+            <div class="error-vacio" id="error-vacio">
+
+            </div>
+            <div class="cont-tipoProductos">
+                <select name="productosEntrada" id="productosEntrada" onchange="MagicPlanet.MisScripts.traerProductosEntrada()">
+                    <option value="membresias">Membresias</option>
+                    <option value="tarjetasderegalo">Tarjetas de regalo</option>
+                    <option value="entrada">Entrada</option>
+                </select>
+            </div>
+            <div class="contCajas" id="contCajas">
+                <div class="cont-producto" id="cont-producto">
+    
+                </div>
+                <div class="cont-imagenP" id="cont-imagenP">
+        
+                </div>
+                
+                <div class="cont-horasExtra" id="cont-horasExtra" >
+        
+                </div>
+                <div class="seccion-existente" id="seccion-existente">
+                    <select class="usuarioExistente" id="usuario-existente" name="usuario-existente" onchange="MagicPlanet.MisScripts.existeOno()">
+                        <option value="nuevo-nino" selected>Nuevo Niño</option>
+                        <option value="nino-existente">Niño Existente</option>
+                    </select>
+                </div>
+                <div class="seccion-persona" id="seccion-persona">
+                    <h2>Nombre Niño: </h2>
+                    <div class="cont-input" id="contSubUsuario">
+                        <input type="text" name="nombreNino" id="nombreNino" /> 
+                    </div>
+                </div>
+                
+            </div>
+            <div class="cont-datos">
+                <div class="seccion">
+                    <h2>Precio: </h2>
+                    <div class="dato" id="cont-precio">
+    
+                    </div>
+                </div>
+                <div class="seccion">
+                    <h2>Usuario: </h2>
+                    <div class="dato" id="cont-usuario">
+    
+                    </div>
+                </div>
+            </div>
+            <div class="cont-boton">
+                <input type="hidden" name="precioR" id="precioR" />
+                <button onclick="MagicPlanet.MisScripts.agregarCompra()">Agregar</button>
+            </div>
+            
+        </div>
+    </div>
+    <div class="secciones">
+        <div class="centrando">
+            <div class="seccion-carro" id="datos-carro"> 
+                
+                
+            </div>
+            <div class="cont-total" id="cont-total">
+                
+            </div>
+            <div class="cont-tipoPago" id="cont-tipoPago">
+
+            </div>
+            <div class="cont-seccionPago" id="cont-seccionPago">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(async function() {
+        
+        // MagicPlanet.MisScripts.traerBrazaletes();
+    
+        const current_url = new URL(window.location.href);
+        const search_params = current_url.searchParams;
+        const id = search_params.get('id');
+        MagicPlanet.MisScripts.traerProductosEntrada(id);
+        MagicPlanet.MisScripts.cambiarProducto();
+
+        
+    })
+
+</script>
